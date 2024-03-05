@@ -1,0 +1,11 @@
+<form [formGroup]="encuestaForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let pregunta of preguntas ; let i = index" class="form-group">
+      <label>{{ pregunta }}</label>
+      <div>
+        <i  (click)="setResponse('satisfecho', i)"></i>
+        <i  (click)="setResponse('medio', i)"></i> 
+        <i  (click)="setResponse('poco', i)"></i> 
+      </div>      
+    </div>
+    <button type="submit" [disabled]="encuestaForm.invalid" class="btn btn-primary">Enviar</button>
+  </form>

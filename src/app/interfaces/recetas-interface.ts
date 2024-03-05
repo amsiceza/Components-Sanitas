@@ -1,4 +1,4 @@
-export interface receta {
+export interface Receta {
     titulo: string,
     dificultad: string,
     tiempo: number,

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { receta } from '../../interfaces/recetas-interface';
+import { Receta } from '../../../interfaces/recetas-interface';
 
 @Component({
   selector: 'app-card-recetas',
@@ -7,7 +7,7 @@ import { receta } from '../../interfaces/recetas-interface';
   styleUrl: './card-recetas.component.scss'
 })
 export class CardRecetasComponent {
-  @Input() receta: receta | undefined
+  @Input() receta: Receta | undefined
 
   toggleFavorite(){
     if(this.receta !== undefined){
