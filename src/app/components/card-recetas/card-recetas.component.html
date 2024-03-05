@@ -1,0 +1,16 @@
+<div class="card-recetas" [style.background-image]="'url(' + receta?.img + ')'">
+    <div class="liked-container">
+        <span  *ngIf="!receta?.liked"><img src="../../../assets/icons/off.svg" alt=""></span>
+        <span  *ngIf="receta?.liked"><img src="../../../assets/icons/on.svg" alt=""></span>
+    </div>
+    <div class="content-container">
+        <div class="title-container">
+            <h1>{{receta?.titulo}}</h1>
+        </div>
+        
+        <div class="bottom-content">
+            <app-nutrition-dificultad [dificultad]="receta?.dificultad"></app-nutrition-dificultad>
+            <span class="tiempo">{{receta?.tiempo}} min.</span>
+        </div>
+    </div>
+</div>

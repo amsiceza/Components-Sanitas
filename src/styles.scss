@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'mi_fuente'; 
+    src: url('../src/assets/fonts/Metropolis/Metropolis-Regular.otf') format('truetype'); 
+  }
+  @font-face {
+    font-family: 'mi_fuente'; 
+    src: url('../src/assets/fonts/Metropolis/Metropolis-Bold.otf') format('truetype'); 
+    font-weight: bold;
+}
+
+*{
+    font-family: "mi_fuente", sans-serif;
+}
