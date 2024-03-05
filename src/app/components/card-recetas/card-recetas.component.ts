@@ -8,4 +8,11 @@ import { receta } from '../../interfaces/recetas-interface';
 })
 export class CardRecetasComponent {
   @Input() receta: receta | undefined
+
+  toggleFavorite(){
+    if(this.receta !== undefined){
+      this.receta.liked = !this.receta.liked;
+    }
+    
+  }
 }
