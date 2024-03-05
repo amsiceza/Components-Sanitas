@@ -20,4 +20,11 @@ export const recetas = [
       liked: false,
       img: "https://www.lavanguardia.com/files/og_thumbnail/uploads/2019/03/13/5e9980dc708b4.jpeg"
     },
+    {
+      titulo: "Ensalada César",
+      dificultad: "Fácil",
+      tiempo: 15,
+      liked: true,
+      img: "https://cecotec.es/recetas/wp-content/uploads/2022/11/Cecofry_Ensalada-Cesar_ligera_RRSS-1.jpg"
+    }
   ];
