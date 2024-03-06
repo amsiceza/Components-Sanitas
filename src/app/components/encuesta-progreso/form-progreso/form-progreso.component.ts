@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { preguntasProgreso } from '../../../mocks/encuesta-mock';
+import { preguntasProgreso } from '../mock';
 
 
 @Component({

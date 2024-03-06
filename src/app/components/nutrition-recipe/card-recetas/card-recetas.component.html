@@ -1,17 +1,19 @@
 
-<div class="card-recetas" [style.background-image]="'url(' + receta?.img + ')'">
-    <div class="liked-container">
-        <span  *ngIf="!receta?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/off.svg" alt=""></span>
-        <span  *ngIf="receta?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/on.svg" alt=""></span>
-    </div>
-    <div class="content-container">
-        <div class="title-container">
-            <h1>{{receta?.titulo}}</h1>
+<div class="recipe-card">
+    <div class="recipe-card__background" [style.background-image]="'url(' + recipe.img + ')'">
+        <div class="recipe-card__liked-container">
+            <span class="recipe-card__like-icon" *ngIf="!recipe?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/off.svg" alt=""></span>
+            <span class="recipe-card__like-icon" *ngIf="recipe?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/on.svg" alt=""></span>
         </div>
-        
-        <div class="bottom-content">
-            <app-nutrition-dificultad [dificultad]="receta?.dificultad"></app-nutrition-dificultad>
-            <span class="tiempo">{{receta?.tiempo}} min.</span>
+        <div class="recipe-card__content-container">
+            <div class="recipe-card__title-container">
+                <h1 class="recipe-card__title">{{recipe.title}}</h1>
+            </div>
+            <div class="recipe-card__bottom-content">
+                <p class="recipe-card__difficulty recipe-card__difficulty--{{difficultyTemplate.class}}">{{difficultyTemplate.text}}</p>
+                <span class="recipe-card__time">{{recipe.time}} min.</span>
+            </div>
         </div>
     </div>
 </div>
+
