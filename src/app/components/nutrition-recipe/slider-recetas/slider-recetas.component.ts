@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Receta } from '../../../interfaces/recetas-interface';
-import { recetas } from '../../../mocks/recetas-mock';
+import { recetas } from '../card-recetas/mock';
+import { Receta } from '../nutrition-recipe.interface';
 
 @Component({
   selector: 'app-slider-recetas',
