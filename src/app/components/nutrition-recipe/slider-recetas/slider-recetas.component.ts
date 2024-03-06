@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { recetas } from '../card-recetas/mock';
-import { Receta } from '../nutrition-recipe.interface';
+import { Component, OnInit } from '@angular/core';
+import { NutritionRecipeInterface } from '../nutrition-recipe.interface';
+import { recipesMock } from '../card-recetas/mock';
 
 @Component({
   selector: 'app-slider-recetas',
@@ -8,7 +8,7 @@ import { Receta } from '../nutrition-recipe.interface';
   styleUrl: './slider-recetas.component.scss'
 })
 export class SliderRecetasComponent implements OnInit{
-  recetasArray: Receta[] = recetas
+  recipesArray: NutritionRecipeInterface[] = recipesMock
 
   ngOnInit(){
   }

@@ -1,79 +1,83 @@
-.card-recetas {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  max-width: 160px;
-  max-height: 160px;
-  height: 160px;
-  width: 160px;
-  background-size: cover;
-  border-radius: 18px;
-  position: relative;
-  .liked-container {
+.recipe-card {
+  &__background::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
+    border-radius: 0 0 18px 18px;
+  }
+  &__background {
     display: flex;
-    justify-content: end;
-    padding: 0.5rem;
-    cursor: pointer;
-    span {
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 160px;
+    max-height: 160px;
+    height: 160px;
+    width: 160px;
+    background-size: cover;
+    border-radius: 18px;
+    position: relative;
+    &__liked-container {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 7px;
-      border-radius: 48px;
-      background-color: rgba(0, 0, 0, 0.574);
-      font-size: 23px;
-      color: white;
-    }
-  }
-  .content-container {
-    z-index: 1;
-    .title-container {
-      display: flex;
-      margin-left: 10px;
-      margin-right: 10px;
-      h1 {
-        font-size: 16px;
-        color: white;
-        font-weight: 500;
-        margin: 0;
-        line-height: 22px;
-      }
-    }
-
-    .bottom-content {
-      display: flex;
-      justify-content: space-between;
-      margin: 10px 10px;
-      font-size: 12px;
-
-      .dificultad {
-        color: #6fdc8c;
-        font-weight: bolder;
-      }
-      .tiempo {
+      justify-content: end;
+      padding: 0.5rem;
+      cursor: pointer;
+      &__like-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 7px;
+        border-radius: 48px;
+        background-color: rgba(0, 0, 0, 0.574);
+        font-size: 23px;
         color: white;
       }
     }
+    &__content-container {
+      z-index: 1;
+      &__title-container {
+        display: flex;
+        margin-left: 10px;
+        margin-right: 10px;
+        &__title {
+          font-size: 16px;
+          color: white;
+          font-weight: 500;
+          margin: 0;
+          line-height: 22px;
+        }
+      }
+
+      &__bottom-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 10px;
+        font-size: 12px;
+
+        &__difficulty--easy {
+          color: #6fdc8c;
+          font-weight: bold;
+        }
+        &__difficulty--medium {
+          color: #f1ad71;
+          font-weight: bold;
+        }
+        &__difficulty--hard {
+          color: #db3907;
+          font-weight: bold;
+        }
+
+        &__time {
+          color: white;
+        }
+      }
+    }
   }
-}
-.card-recetas::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 80%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
-  border-radius: 0 0 18px 18px;
-}
+  
 
-
-.dificulty--easy {
-  color: #6fdc8c;
-}
-.dificulty--medium{
-    color: #F1AD71;
-}
-.dificulty--hard{
-    color: #DB3907;
+  
 }
