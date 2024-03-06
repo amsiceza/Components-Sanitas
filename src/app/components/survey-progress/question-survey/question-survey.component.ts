@@ -2,10 +2,10 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-question-encuesta',
-  templateUrl: './question-encuesta.component.html',
-  styleUrl: './question-encuesta.component.scss'
+  templateUrl: './question-survey.component.html',
+  styleUrl: './question-survey.component.scss'
 })
-export class QuestionEncuestaComponent {
+export class QuestionSurveyComponent {
   @Input() pregunta: string | undefined;
   imagenAzulIndex: number = -1;
 

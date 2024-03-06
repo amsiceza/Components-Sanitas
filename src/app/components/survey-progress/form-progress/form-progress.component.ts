@@ -5,10 +5,10 @@ import { preguntasProgreso } from '../mock';
 
 @Component({
   selector: 'app-form-progreso',
-  templateUrl: './form-progreso.component.html',
-  styleUrl: './form-progreso.component.scss',
+  templateUrl: './form-progress.component.html',
+  styleUrl: './form-progress.component.scss',
 })
-export class FormProgresoComponent implements OnInit {
+export class FormProgressComponent implements OnInit {
   encuestaForm!: FormGroup;
   preguntas: string[] = preguntasProgreso
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EncuestaModule } from './components/encuesta-progreso/encuesta-progreso.module';
+import { SurveyProgressModule } from './components/survey-progress/survey-progress.module';
 import { NutritionRecipeModule } from './components/nutrition-recipe/nutrition-recipe.module';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { NutritionRecipeModule } from './components/nutrition-recipe/nutrition-r
   imports: [
     BrowserModule,
     AppRoutingModule,
-    EncuestaModule,
+    SurveyProgressModule,
     NutritionRecipeModule
   ],
   providers: [],

@@ -1,7 +1,7 @@
 <div class="slider-component">
     <swiper-container  slides-per-view="2.1" speed="500" loop="true" css-mode="true" pagination="true"   >
         <swiper-slide *ngFor="let recipe of recipesArray" class="paginator">
-          <app-card-recetas [recipe]="recipe"></app-card-recetas
+          <app-nutrition-recipe-card [recipe]="recipe"></app-nutrition-recipe-card
         ></swiper-slide>
       </swiper-container>
 </div>
