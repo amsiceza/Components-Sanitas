@@ -9,6 +9,7 @@ import { NutritionDificultadComponent } from './components/nutrition-recipe/nutr
 import { register } from 'swiper/element/bundle';
 import { FormProgresoComponent } from './components/encuesta-progreso/form-progreso/form-progreso.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { QuestionEncuestaComponent } from './components/encuesta-progreso/question-encuesta/question-encuesta.component';
 register();
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ register();
     CardRecetasComponent,
     SliderRecetasComponent,
     NutritionDificultadComponent,
-    FormProgresoComponent
+    FormProgresoComponent,
+    QuestionEncuestaComponent
   ],
   imports: [
     BrowserModule,
