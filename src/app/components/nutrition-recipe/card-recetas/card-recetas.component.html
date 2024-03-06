@@ -6,12 +6,12 @@
             <span class="recipe-card__background__liked-container__like-icon" *ngIf="recipe?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/on.svg" alt=""></span>
         </div>
         <div class="recipe-card__background__content-container">
-            <div class="recipe-card__title-container">
-                <h1 class="recipe-card__title">{{recipe.title}}</h1>
+            <div class="recipe-card__background__content-container__title-container">
+                <h1 class="recipe-card__background__content-container__title-container__title">{{recipe.title}}</h1>
             </div>
-            <div class="recipe-card__bottom-content">
-                <p class="recipe-card__difficulty recipe-card__difficulty--{{difficultyTemplate.class}}">{{difficultyTemplate.text}}</p>
-                <span class="recipe-card__time">{{recipe.time}} min.</span>
+            <div class="recipe-card__background__content-container__bottom-content">
+                <p class="recipe-card__background__content-container__bottom-content__difficulty--{{difficultyTemplate.class}}">{{difficultyTemplate.text}}</p>
+                <span class="recipe-card__background__content-container__bottom-content__time">{{recipe.time}} min.</span>
             </div>
         </div>
     </div>

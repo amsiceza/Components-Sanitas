@@ -4,7 +4,7 @@ export interface DificultyInfo {
 }
 
 export const DIFICULTY: { [key: string]: DificultyInfo } = {
-    0: { text: "Fácil", class: "dificulty--easy" },
-    1: {text: "Media", class: "dificulty--medium"},
-    2: {text: "Difícil", class: "dificulty--hard"}
+    0: { text: "Fácil", class: "easy" },
+    1: {text: "Media", class: "medium"},
+    2: {text: "Difícil", class: "hard"}
 };
