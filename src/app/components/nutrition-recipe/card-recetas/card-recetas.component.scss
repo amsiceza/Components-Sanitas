@@ -1,4 +1,8 @@
-.card-recetas {
+.recipe-card{
+
+
+
+&__background {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,12 +13,12 @@
   background-size: cover;
   border-radius: 18px;
   position: relative;
-  .liked-container {
+  &__liked-container {
     display: flex;
     justify-content: end;
     padding: 0.5rem;
     cursor: pointer;
-    span {
+    &__like-icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -76,4 +80,8 @@
 }
 .dificulty--hard{
     color: #DB3907;
+}
+
+
+
 }

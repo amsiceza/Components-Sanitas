@@ -1,7 +1,7 @@
-export interface Receta {
-    titulo: string,
-    dificultad: number,
-    tiempo: number,
+export interface NutritionRecipeInterface {
+    title: string,
+    difficulty: number,
+    time: number,
     liked: boolean,
     img: string
 }
