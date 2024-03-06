@@ -1,33 +1,22 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CardRecetasComponent } from './components/nutrition-recipe/card-recetas/card-recetas.component';
-import { SliderRecetasComponent } from './components/nutrition-recipe/slider-recetas/slider-recetas.component';
-import { NutritionDificultadComponent } from './components/nutrition-recipe/nutrition-dificultad/nutrition-dificultad.component';
-import { register } from 'swiper/element/bundle';
-import { FormProgresoComponent } from './components/encuesta-progreso/form-progreso/form-progreso.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { QuestionEncuestaComponent } from './components/encuesta-progreso/question-encuesta/question-encuesta.component';
-register();
+import { EncuestaModule } from './components/encuesta-progreso/encuesta-progreso.module';
+import { NutritionRecipeModule } from './components/nutrition-recipe/nutrition-recipe.module';
+
 @NgModule({
   declarations: [
     AppComponent,
-    CardRecetasComponent,
-    SliderRecetasComponent,
-    NutritionDificultadComponent,
-    FormProgresoComponent,
-    QuestionEncuestaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    EncuestaModule,
+    NutritionRecipeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
 export class AppModule { }
