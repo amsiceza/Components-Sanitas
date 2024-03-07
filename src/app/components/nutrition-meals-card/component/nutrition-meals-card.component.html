@@ -1,0 +1,22 @@
+<div class="nutrition-meals-card" [class.front]="isFront" [class.back]="!isFront" [style.backgroundImage]="'url(' + backgroundImage + ')'">
+    <div class="nutrition-meals-card__data">
+        <div class="nutrition-meals-card__data__header">
+            <p *ngIf="isFront" class="nutrition-meals-card__data__header--text" @fadeInOut> {{config.frontHeader.title}} <span *ngIf="config.frontHeader.subtitle" class="nutrition-meals-card__data__header-subtitle">({{config.frontHeader.subtitle}})</span></p>    
+            <p *ngIf="!isFront" class="nutrition-meals-card__data__header--text" @fadeInOut> {{config.backTitle}}</p>
+        </div>
+        <div class="nutrition-meals-card__data__content">
+            <ul *ngIf="isFront" class="nutrition-meals-card__data__content__list" @fadeInOut>
+                <li class="nutrition-meals-card__data__content__list--item" *ngFor="let item of config.frontList">{{item | truncate}}</li>
+            </ul>
+                <div *ngIf="!isFront" class="nutrition-meals-card__data__content__back" @fadeInOut>
+                    <p class="nutrition-meals-card__data__content__back--item" *ngFor="let item of config.backList | slice:0:5">{{item}}</p>
+                </div>
+            <div class="nutrition-meals-card__data__content__card-action">
+                <div class="nutrition-meals-card__data__content__card-action--info" (click)="flipCard()">
+                    <img *ngIf="isFront" src="../../../../assets/icons/information/linear.svg" alt="information-icon" @fadeInOut>
+                    <img *ngIf="!isFront" src="../../../../assets/icons/navigation/back-navigation.svg" alt="back-navigation-icon" @fadeInOut>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

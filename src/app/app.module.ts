@@ -4,6 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SurveyProgressModule } from './components/survey-progress/survey-progress.module';
 import { NutritionRecipeModule } from './components/nutrition-recipe/nutrition-recipe.module';
+import { NutritionMealsCardModule } from './components/nutrition-meals-card/nutrition-meals-card.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -13,7 +16,9 @@ import { NutritionRecipeModule } from './components/nutrition-recipe/nutrition-r
     BrowserModule,
     AppRoutingModule,
     SurveyProgressModule,
-    NutritionRecipeModule
+    NutritionRecipeModule,
+    NutritionMealsCardModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
