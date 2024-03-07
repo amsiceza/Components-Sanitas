@@ -8,5 +8,4 @@ import { mockNutritionMealsCard } from './components/nutrition-meals-card/mock';
 })
 export class AppComponent {
   title = 'test-components-sanitas';
-  mockNutritionMealsCard = mockNutritionMealsCard;
 }
