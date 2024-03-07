@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NutritionRecipeCardConfig } from '../nutrition-recipe-card.interface';
-import { DIFFICULTY, DifficultyInfo } from '../../../enums/dificulty.enum';
+import { DIFFICULTY, DifficultyInfo } from '../../../enums/difficulty.enum';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
