@@ -4,4 +4,6 @@ export interface NutritionRecipeInterface {
     duration: number,
     liked: boolean,
     backgrounImage: string
+    mealTime: string[]
 }
+
