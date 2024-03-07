@@ -1,10 +1,14 @@
-.slider-component{
+.nutrition-recipe-view {
     width: 385px;
-}
-swiper-container {
-    margin-left: 1rem;
-    margin-top: 1rem;}
+    &__swiper-container {
+      margin-left: 1rem;
+      margin-top: 1rem;
+      &__swiper-slide {
+        padding-bottom: 2.5rem;
+      }
+    }
+  }
+  
 
-.paginator{
-    padding-bottom: 2.5rem;
-}
+
+
