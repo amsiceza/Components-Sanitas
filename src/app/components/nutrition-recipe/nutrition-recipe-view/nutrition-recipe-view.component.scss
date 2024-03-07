@@ -1,13 +1,16 @@
 .nutrition-recipe-view {
-    width: 385px;
-    &__swiper-container {
-      margin-left: 1rem;
-      margin-top: 1rem;
-      &__swiper-slide {
-        padding-bottom: 2.5rem;
-      }
+  width: 385px;
+
+  &__swiper-container {
+    margin-left: 1rem;
+    margin-top: 1rem;
+
+    &__swiper-slide {
+      padding-bottom: 2.5rem;
     }
   }
+}
+
   
 
 

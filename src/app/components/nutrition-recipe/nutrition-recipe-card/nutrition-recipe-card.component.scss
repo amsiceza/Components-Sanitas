@@ -1,73 +1,36 @@
 .recipe-card {
-  &__background::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 80%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
-    border-radius: 0 0 18px 18px;
-  }
   &__background {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 160px;
-    max-height: 160px;
-    height: 160px;
-    width: 160px;
     background-size: cover;
     border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    height: 160px;
+    justify-content: space-between;
+    max-height: 160px;
+    max-width: 160px;
     position: relative;
-    &__liked-container {
-      display: flex;
-      justify-content: end;
-      padding: 0.5rem;
-      cursor: pointer;
-      &__like-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 7px;
-        border-radius: 48px;
-        background-color: rgba(0, 0, 0, 0.574);
-        font-size: 23px;
-        color: white;
-      }
-    }
+    width: 160px;
+
     &__content-container {
       z-index: 1;
-      &__title-container {
-        display: flex;
-        margin-left: 10px;
-        margin-right: 10px;
-        &__title {
-          font-size: 16px;
-          color: white;
-          font-weight: 500;
-          margin: 0;
-          line-height: 22px;
-        }
-      }
 
       &__bottom-content {
-        display: flex;
-        justify-content: space-between;
         align-items: center;
-        margin: 0 10px;
+        display: flex;
         font-size: 12px;
+        justify-content: space-between;
+        margin: 0 10px;
 
         &__difficulty--easy {
           color: #6fdc8c;
           font-weight: bold;
         }
-        &__difficulty--medium {
-          color: #f1ad71;
-          font-weight: bold;
-        }
         &__difficulty--hard {
           color: #db3907;
+          font-weight: bold;
+        }
+        &__difficulty--medium {
+          color: #f1ad71;
           font-weight: bold;
         }
 
@@ -75,6 +38,49 @@
           color: white;
         }
       }
+
+      &__title-container {
+        display: flex;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        &__title {
+          color: white;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 22px;
+          margin: 0;
+        }
+      }
     }
-  }  
+
+    &__liked-container {
+      cursor: pointer;
+      display: flex;
+      justify-content: end;
+      padding: 0.5rem;
+
+      &__like-icon {
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.574);
+        border-radius: 48px;
+        color: white;
+        display: flex;
+        font-size: 23px;
+        justify-content: center;
+        padding: 7px;
+      }
+    }
+  }
+
+  &__background::after {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
+    border-radius: 0 0 18px 18px;
+    bottom: 0;
+    content: "";
+    height: 80%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
 }
