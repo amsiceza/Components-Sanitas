@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { mockNutritionMealsCard } from './components/nutrition-meals-card/mock';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-components-sanitas';
+  mockNutritionMealsCard = mockNutritionMealsCard;
 }

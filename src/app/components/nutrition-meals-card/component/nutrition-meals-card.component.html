@@ -1,7 +1,17 @@
 <div class="nutrition-meals-card">
     <div class="nutrition-meals-card__front">
-        <div class="nutrition-meals-card__front__title">
-            <p>Test <span>Subtext</span></p>
+        <div class="nutrition-meals-card__front__header">
+            <p>{{config.frontHeader.title}} <span *ngIf="config.frontHeader.subtitle" class="nutrition-meals-card__front__header-subtitle">({{config.frontHeader.subtitle}})</span></p>
+        </div>
+        <div class="nutrition-meals-card__front__content">
+            <ul class="nutrition-meals-card__front__content__list">
+                <li *ngFor="let item of config.frontList">{{item | truncate}}</li>
+            </ul>
+            <div class="nutrition-meals-card__front__content__card-action">
+                <div class="nutrition-meals-card__front__content__card-action--info">
+                    <img src="../../../../assets/icons/information/linear.svg" alt="information-icon">
+                </div>
+            </div>
         </div>
     </div>
     <div class="nutrition-meals-card__back"></div>
