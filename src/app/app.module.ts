@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { EncuestaModule } from './components/encuesta-progreso/encuesta-progreso.module';
 import { NutritionRecipeModule } from './components/nutrition-recipe/nutrition-recipe.module';
 import { NutritionMealsCardModule } from './components/nutrition-meals-card/nutrition-meals-card.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { NutritionMealsCardModule } from './components/nutrition-meals-card/nutr
     EncuestaModule,
     NutritionRecipeModule,
     NutritionMealsCardModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
