@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DIFICULTY, DificultyInfo } from '../../../enums/dificulty.enum';
+import { DIFFICULTY, DifficultyInfo } from '../../../enums/difficulty.enum';
 import { NutritionRecipeInterface } from '../nutrition-recipe.interface';
 
 @Component({
@@ -8,17 +8,17 @@ import { NutritionRecipeInterface } from '../nutrition-recipe.interface';
   styleUrl: './nutrition-recipe-card.component.scss'
 })
 export class NutritionRecipeCardComponent implements OnInit{
-  @Input({required: true}) recipe!: NutritionRecipeInterface 
-  public difficultyTemplate!: DificultyInfo
+  @Input({required: true}) config!: NutritionRecipeInterface 
+  public difficultyTemplate!: DifficultyInfo
 
   ngOnInit(): void {
-    this.difficultyTemplate = DIFICULTY[this.recipe?.difficulty]
+    this.difficultyTemplate = DIFFICULTY[this.config?.difficulty]
   }
 
 
   toggleFavorite(){
-    if(this.recipe !== undefined){
-      this.recipe.liked = !this.recipe.liked;
+    if(this.config !== undefined){
+      this.config.liked = !this.config.liked;
     }
     
   }

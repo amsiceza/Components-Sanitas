@@ -1,17 +1,17 @@
 
 <div class="recipe-card">
-    <div class="recipe-card__background" [style.background-image]="'url(' + recipe.img + ')'">
+    <div class="recipe-card__background" [style.background-image]="'url(' + config.backgrounImage + ')'">
         <div class="recipe-card__background__liked-container">
-            <span class="recipe-card__background__liked-container__like-icon" *ngIf="!recipe?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/off.svg" alt=""></span>
-            <span class="recipe-card__background__liked-container__like-icon" *ngIf="recipe?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/on.svg" alt=""></span>
+            <span class="recipe-card__background__liked-container__like-icon" *ngIf="!config?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/off.svg" alt=""></span>
+            <span class="recipe-card__background__liked-container__like-icon" *ngIf="config?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/on.svg" alt=""></span>
         </div>
         <div class="recipe-card__background__content-container">
             <div class="recipe-card__background__content-container__title-container">
-                <h1 class="recipe-card__background__content-container__title-container__title">{{recipe.title}}</h1>
+                <h1 class="recipe-card__background__content-container__title-container__title">{{config.title}}</h1>
             </div>
             <div class="recipe-card__background__content-container__bottom-content">
                 <p class="recipe-card__background__content-container__bottom-content__difficulty--{{difficultyTemplate.class}}">{{difficultyTemplate.text}}</p>
-                <span class="recipe-card__background__content-container__bottom-content__time">{{recipe.time}} min.</span>
+                <span class="recipe-card__background__content-container__bottom-content__time">{{config.duration}} min.</span>
             </div>
         </div>
     </div>

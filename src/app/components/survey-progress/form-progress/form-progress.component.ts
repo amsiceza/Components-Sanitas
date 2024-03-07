@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { preguntasProgreso } from '../mock';
+import { questionAnswersMock } from '../mock';
+import { QuestionSurveyInterface } from '../question-survey.interface';
+import { compileNgModule } from '@angular/compiler';
 
 
 @Component({
@@ -10,23 +12,22 @@ import { preguntasProgreso } from '../mock';
 })
 export class FormProgressComponent implements OnInit {
   encuestaForm!: FormGroup;
-  preguntas: string[] = preguntasProgreso
+  config: QuestionSurveyInterface = questionAnswersMock
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-
     this.encuestaForm = this.formBuilder.group({});
-    preguntasProgreso.forEach((pregunta, index) => {
+    this.config.questions.forEach((question, index) => {
       this.encuestaForm?.addControl(
-        'pregunta' + index,
+        'question' + index,
         this.formBuilder.control('', Validators.required)
       );
     });
   }
 
   setResponse(response: string, index: number) {
-    this.encuestaForm.get('pregunta' + index)?.setValue(response);
+    this.encuestaForm.get('question' + index)?.setValue(response);
   }
 
   onSubmit() {

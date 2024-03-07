@@ -1,25 +1,26 @@
-<p>{{ pregunta }}</p>
-<div class="questions-container">
-    <div class="answer-container">
-        <button (click)="toggleAzul(0)">
-            <img src="../../../../assets/icons/encuesta-respuestas/{{ imagenAzulIndex === 0 ? 'blue-sad' : 'sad' }}.svg" alt=""/>
-        </button>
-        <span>Poco</span>
-    </div>
-    <div class="answer-container">
-        <button (click)="toggleAzul(1)">
-            <img src="../../../../assets/icons/encuesta-respuestas/{{ imagenAzulIndex === 1 ? 'blue-normal' : 'normal' }}.svg" alt=""/>
-        </button>
-        <span>Normal</span>
-    </div>
-    <div class="answer-container">
-        <button (click)="toggleAzul(2)">
-            <img src="../../../../assets/icons/encuesta-respuestas/{{ imagenAzulIndex === 2 ? 'blue-happy' : 'happy' }}.svg" alt=""/>
-        </button>
-        <span>Mucho</span>
+<div class="question-survey-container">
+    <p class="question-survey-container--question">{{ question }}</p>
+    <div class="question-survey-container__answers-main">
+        <div class="question-survey-container__answers-main__answer-container">
+            <button class="question-survey-container__answers-main__answer-container--button" (click)="toggleAzul(0)">
+                <img [src]="answerTemplate[0].icon" alt="" [class.question-survey-container__answers-main__answer-container--button--img-active]="imagenAzulIndex === 0" />
+            </button>
+            <span class="question-survey-container__answers-main__answer-container--span">{{answerTemplate[0].value}}</span>
+        </div>
+        <div class="question-survey-container__answers-main__answer-container">
+            <button class="question-survey-container__answers-main__answer-container--button" (click)="toggleAzul(1)">
+                <img [src]="answerTemplate[1].icon" alt="" [class.question-survey-container__answers-main__answer-container--button--img-active]="imagenAzulIndex === 1" />
+            </button>
+            <span class="question-survey-container__answers-main__answer-container--span">{{answerTemplate[1].value}}</span>
+        </div>
+        <div class="question-survey-container__answers-main__answer-container">
+            <button class="question-survey-container__answers-main__answer-container--button" (click)="toggleAzul(2)">
+                <img [src]="answerTemplate[2].icon" alt="" [class.question-survey-container__answers-main__answer-container--button--img-active]="imagenAzulIndex === 2" />
+            </button>
+            <span class="question-survey-container__answers-main__answer-container--span">{{answerTemplate[2].value}}</span>
+        </div>
     </div>
 </div>
-
 
 
 

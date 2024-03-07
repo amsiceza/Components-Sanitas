@@ -1,8 +1,18 @@
-<div class="slider-component">
-    <swiper-container  slides-per-view="2.1" speed="500" loop="true" css-mode="true" pagination="true"   >
-        <swiper-slide *ngFor="let recipe of recipesArray" class="paginator">
-          <app-nutrition-recipe-card [recipe]="recipe"></app-nutrition-recipe-card
-        ></swiper-slide>
-      </swiper-container>
+<div class="nutrition-recipe-view">
+  <swiper-container
+    class="nutrition-recipe-view__swiper-container"
+    slides-per-view="2.1"
+    speed="500"
+    loop="true"
+    css-mode="true"
+    pagination="true"
+  >
+    <swiper-slide
+      *ngFor="let recipe of recipesArray"
+      class="nutrition-recipe-view__swiper-container__swiper-slide"
+    >
+      <app-nutrition-recipe-card [config]="recipe"></app-nutrition-recipe-card>
+    </swiper-slide>
+  </swiper-container>
 </div>
 
