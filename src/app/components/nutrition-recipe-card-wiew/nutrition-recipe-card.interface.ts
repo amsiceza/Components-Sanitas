@@ -2,7 +2,7 @@ export interface NutritionRecipeCardConfig {
 
 backgroundImage: string;
 frontTitle: string;
-dificulty: number;
+difficulty: number;
 duration: number;
 isFavorite: boolean;
 backTitle: string;

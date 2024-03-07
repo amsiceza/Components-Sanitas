@@ -1,10 +1,10 @@
-export interface DificultyInfo {
+export interface DifficultyInfo {
     text: string;
     class: string;
 }
 
-export const DIFICULTY: { [key: string]: DificultyInfo } = {
-    0: { text: "Fácil", class: "dificulty--easy" },
-    1: {text: "Media", class: "dificulty--medium"},
-    2: {text: "Difícil", class: "dificulty--hard"}
+export const DIFFICULTY: { [key: string]: DifficultyInfo } = {
+    0: { text: "Fácil", class: "difficulty--easy" },
+    1: {text: "Media", class: "difficulty--medium"},
+    2: {text: "Difícil", class: "difficulty--hard"}
 };
