@@ -1,13 +1,11 @@
-<div class="nutrition-recipe-card " style="background-image: url('{{config.backgroundImage}}');" >
 
-    <div class="nutrition-recipe-card__front" *ngIf="isFront">
+   <div class="nutrition-recipe-card " style="background-image: url('{{config.backgroundImage}}');" >
+
+    <div class="nutrition-recipe-card__front" @changeSide *ngIf="isFront">
         <div class="nutrition-recipe-card__front--header">
-       
             <div class="nutrition-recipe-card__front--header__referesh-container">     
                 <span class="nutrition-recipe-card__front--header__referesh-container__icon" (click)="refreshClick()"><img class="icon" src="../../../../assets/icons/refresh.svg" alt="icon refresh"></span>
             </div>
-
-
         </div>
         <div class="nutrition-recipe-card__front__footer">
             <div class="nutrition-recipe-card__front__footer__content">
@@ -15,7 +13,7 @@
                 <h3 class="nutrition-recipe-card__front__footer__content__title">{{config.frontTitle}}</h3>
                 <div class="nutrition-recipe-card__front__footer__content__sub-info">
                     <span class="nutrition-recipe-card__front__footer__content__{{difficultyTemplate.class}}">{{difficultyTemplate.text}}</span>
-                    <span> {{config.duration}} min.</span>
+                    <span lass="nutrition-recipe-card__front__footer__content__sub-info__time"> {{config.duration}} min.</span>
                 </div>
                
 
@@ -25,14 +23,12 @@
                 <span class="nutrition-recipe-card__front__footer__icons-container__icon" *ngIf="!isFavorite" (click)="favoriteClick()"><img class="icon" src="../../../../assets/icons/off.svg" alt="unlike button"></span>
                 <span class="nutrition-recipe-card__front__footer__icons-container__icon flip-icon" (click)="flip()"><img (click)="changeSide()" class="icon" src="../../../../assets/icons/flip.svg" alt="flip button"></span>
             </div>
-            <div class="nutrition-recipe-card__front__footer__description">
-                
-            </div>
+          
         </div>
 
     </div>
   
-    <div class="nutrition-recipe-card__back" *ngIf="!isFront">
+    <div class="nutrition-recipe-card__back" @changeSide *ngIf="!isFront">
         <div class="nutrition-recipe-card__back__main">
             <p class="nutrition-recipe-card__back__main__title"> {{config.backTitle}}</p>
             <div class="nutrition-recipe-card__back__main__content" *ngFor="let item of config.backInfo">
@@ -43,16 +39,13 @@
                     {{item.subtitle}}
                 </span>
             </div>
-
-
         </div>
         <div class="nutrition-recipe-card__back__side">
-           
                 <span class="nutrition-recipe-card__back__side__icons-container" >
                 <img (click)="changeSide()" src="../../../../assets/icons/arrow.svg" alt="change side button">
                 </span>
-           
         </div>
-
     </div>
-</div>
+</div> 
+
+

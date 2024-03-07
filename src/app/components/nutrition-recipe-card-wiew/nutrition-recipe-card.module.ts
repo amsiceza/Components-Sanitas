@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NutritionRecipeCardComponent } from './nutrition-recipe-card/nutrition-recipe-card.component';
 import { NutritionRecipeCardWiewComponent } from './nutrition-recipe-card-wiew.component';
 import { register } from 'swiper/element/bundle';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 register();
@@ -13,7 +14,8 @@ register();
    NutritionRecipeCardWiewComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule,
   ],
   exports: [
     NutritionRecipeCardWiewComponent

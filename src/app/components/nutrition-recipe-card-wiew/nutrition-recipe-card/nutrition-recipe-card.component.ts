@@ -1,11 +1,31 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NutritionRecipeCardConfig } from '../nutrition-recipe-card.interface';
 import { DIFFICULTY, DifficultyInfo } from '../../../enums/dificulty.enum';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-nutrition-recipe-card',
   templateUrl: './nutrition-recipe-card.component.html',
-  styleUrl: './nutrition-recipe-card.component.scss'
+  styleUrl: './nutrition-recipe-card.component.scss',
+  animations: [
+    trigger("changeSide", [
+      transition(":enter", [
+        style({
+          opacity: 0,
+          
+        }),
+        animate("500ms", style({ opacity: 1,  }))
+      ]),
+      transition(":leave", [
+        style({
+         display: "none",
+          
+        }),
+        animate("500ms", style({ opacity: 0, }))
+      ])
+    ]),
+  ]
+  
 })
 export class NutritionRecipeCardComponent implements OnInit {
 
