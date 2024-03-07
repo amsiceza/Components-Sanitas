@@ -1,0 +1,91 @@
+.nutrition-recipe-card {
+    width: 328px;
+    height: 192px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+
+
+    &::before {
+        content: "";
+        position: absolute;
+        border-radius: 10px;
+        width: 328px;
+        height: 192px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+    }
+
+    &__front {
+        position: relative;
+        height: 100%;
+        z-index: 2;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &__header {
+
+            &__referesh-container {
+
+                display: flex;
+                justify-content: end;
+
+                &__icon {
+
+                    margin: 5px;
+                    padding: 5px;
+                    border-radius: 50px;
+                    background-color: rgba(0, 0, 0, 0.574);
+                    font-size: 23px;
+                    color: white;
+                }
+            }
+        }
+
+        &__footer {
+            margin: 10px 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+            &__content {
+                flex: 1 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            &__icons-container {
+
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+
+                &__icon {
+
+                    padding: 5px;
+                    border-radius: 50%;
+                    background-color: rgba(0, 0, 0, 0.574);
+
+                    color: white;
+                }
+
+            }
+        }
+
+
+    }
+
+
+}

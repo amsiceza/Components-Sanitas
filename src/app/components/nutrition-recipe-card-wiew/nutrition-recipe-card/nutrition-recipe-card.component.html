@@ -1,0 +1,37 @@
+<div class="nutrition-recipe-card " style="background-image: url('{{config.backgroundImage}}');" (click)="changeSide()">
+    <div class="nutrition-recipe-card__front" *ngIf="isFront">
+        <div class="nutrition-recipe-card__front__header">
+
+            <div class="nutrition-recipe-card__front__header__referesh-container">
+              
+                <span class="nutrition-recipe-card__front__header__referesh-container__icon" (click)="refreshClick()"><img src="../../../../assets/icons/Fav.svg" alt="icon refresh"></span>
+            </div>
+
+
+        </div>
+        <div class="nutrition-recipe-card__front__footer">
+            <div class="nutrition-recipe-card__front__footer__content">
+                <h3>{{config.frontTitle}}</h3>
+                <span>{{config.dificulty}}  {{config.duration}}</span>
+            </div>
+            <div class="nutrition-recipe-card__front__footer__icons-container">
+                <span class="nutrition-recipe-card__front__footer__icons-container__icon" *ngIf="isFavorite"><img src="../../../../assets/icons/on.svg" alt="like button"></span>
+                <span class="nutrition-recipe-card__front__footer__icons-container__icon" *ngIf="!isFavorite" (click)="favoriteClick()"><img src="../../../../assets/icons/off.svg" alt="unlike button"></span>
+                <span class="nutrition-recipe-card__front__footer__icons-container__icon" (click)="flip()"><img src="../../../../assets/icons/Flip.svg" alt="flip button"></span>
+            </div>
+            <div class="nutrition-recipe-card__front__footer__description">
+                
+            </div>
+        </div>
+
+    </div>
+    <div class="nutrition-recipe-card__back" *ngIf="!isFront">
+        <div class="nutrition-recipe-card__back__main">
+
+        </div>
+        <div class="nutrition-recipe-card__back__side">
+
+        </div>
+
+    </div>
+</div>
