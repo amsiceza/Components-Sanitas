@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DIFFICULTY, DifficultyInfo } from '../../../enums/dificulty.enum';
+import { DIFFICULTY, DifficultyInfo } from '../../../enums/difficulty.enum';
 import { NutritionRecipeInterface } from '../nutrition-recipe.interface';
 
 @Component({

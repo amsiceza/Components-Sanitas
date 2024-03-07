@@ -1,9 +1,9 @@
 <div class="form-progress-container">
-  <form class="form-progress-container__form-tag" [formGroup]="encuestaForm" (ngSubmit)="onSubmit()">
-    <div *ngFor="let pregunta of preguntas ; let i = index" class="form-group">
-      <app-question-encuesta [pregunta]="pregunta"></app-question-encuesta>
+  <form class="form-progress-container__form-tag" [formGroup]="encuestaForm" >
+    <div *ngFor="let pregunta of config.questions; let i = index" class="form-group">
+      <app-question-encuesta [question]="pregunta" (responseSelected)="setResponse($event, i)"></app-question-encuesta>
     </div>
-    <button class="form-progress-container__tag--button" type="submit" [disabled]="encuestaForm.invalid">Enviar respuestas</button>
+    <button class="form-progress-container__tag--button" type="submit" (click)="onSubmit()">Enviar respuestas</button>
   </form>
 </div>
 

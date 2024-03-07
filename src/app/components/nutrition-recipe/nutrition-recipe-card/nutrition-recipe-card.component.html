@@ -1,6 +1,6 @@
 
 <div class="recipe-card">
-    <div class="recipe-card__background" [style.background-image]="'url(' + recipe.img + ')'">
+    <div class="recipe-card__background" [style.background-image]="'url(' + recipe.backgrounImage + ')'">
         <div class="recipe-card__background__liked-container">
             <span class="recipe-card__background__liked-container__like-icon" *ngIf="!recipe?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/off.svg" alt=""></span>
             <span class="recipe-card__background__liked-container__like-icon" *ngIf="recipe?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/on.svg" alt=""></span>
@@ -11,7 +11,7 @@
             </div>
             <div class="recipe-card__background__content-container__bottom-content">
                 <p class="recipe-card__background__content-container__bottom-content__difficulty--{{difficultyTemplate.class}}">{{difficultyTemplate.text}}</p>
-                <span class="recipe-card__background__content-container__bottom-content__time">{{recipe.time}} min.</span>
+                <span class="recipe-card__background__content-container__bottom-content__time">{{recipe.duration}} min.</span>
             </div>
         </div>
     </div>

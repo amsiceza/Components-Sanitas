@@ -1,7 +1,7 @@
 export interface NutritionRecipeInterface {
     title: string,
     difficulty: number,
-    time: number,
+    duration: number,
     liked: boolean,
-    img: string
+    backgrounImage: string
 }
