@@ -37,6 +37,10 @@
             font-weight: 600;
             font-size: 18px;
             line-height: 24px;
+            
+            &--text{
+                margin-top: 0;
+            }
         }
 
         &__header-subtitle{
@@ -54,6 +58,10 @@
             &__list{
                 margin: 0;
                 overflow: hidden;
+
+                &--item{
+                    height: 26px;
+                }
             }
 
             &__card-action{

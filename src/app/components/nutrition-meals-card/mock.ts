@@ -6,6 +6,6 @@ export const mockNutritionMealsCard = {
         subtitle: "Medio día"
     },
     backTitle: "Grupo de alimentos",
-    frontList: ["Ensalada de lechuga, tomate y queso", "Tostada con tomate rallado", "Arroz blanco con pollo", "Yogur natural con cereales"],
+    frontList: ["Ensalada de lechuga, tomate y queso", "Tostada con tomate rallado", "Arroz blanco con pollo", "Yogur natural con cereales", "Pan"],
     backList: ["Lechuga", "Tomate", "Queso fresco", "Pan", "Arroz", "Pollo"]
 };
