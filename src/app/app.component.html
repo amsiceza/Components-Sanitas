@@ -1,2 +1,6 @@
-<app-nutrition-recipe-view></app-nutrition-recipe-view>
-<app-form-progreso></app-form-progreso>
+<nav>
+    Navegación: 
+    <button [routerLink]="['/recetas']" routerLinkActive="router-link-active" >Recetas</button>
+    <button [routerLink]="['/planificacion']" routerLinkActive="router-link-active" >Planificacion</button>
+</nav>
+<router-outlet></router-outlet>
