@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DIFICULTY, DificultyInfo } from '../../../enums/dificulty.enum';
+import { DIFFICULTY, DifficultyInfo } from '../../../enums/dificulty.enum';
 import { NutritionRecipeInterface } from '../nutrition-recipe.interface';
 
 @Component({
@@ -9,10 +9,10 @@ import { NutritionRecipeInterface } from '../nutrition-recipe.interface';
 })
 export class NutritionRecipeCardComponent implements OnInit{
   @Input({required: true}) recipe!: NutritionRecipeInterface 
-  public difficultyTemplate!: DificultyInfo
+  public difficultyTemplate!: DifficultyInfo
 
   ngOnInit(): void {
-    this.difficultyTemplate = DIFICULTY[this.recipe?.difficulty]
+    this.difficultyTemplate = DIFFICULTY[this.recipe?.difficulty]
   }
 
 

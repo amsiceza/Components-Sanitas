@@ -1,22 +1,24 @@
-<p>{{ pregunta }}</p>
-<div class="questions-container">
-    <div class="answer-container">
-        <button (click)="toggleAzul(0)">
-            <img src="../../../../assets/icons/encuesta-respuestas/{{ imagenAzulIndex === 0 ? 'blue-sad' : 'sad' }}.svg" alt=""/>
-        </button>
-        <span>Poco</span>
-    </div>
-    <div class="answer-container">
-        <button (click)="toggleAzul(1)">
-            <img src="../../../../assets/icons/encuesta-respuestas/{{ imagenAzulIndex === 1 ? 'blue-normal' : 'normal' }}.svg" alt=""/>
-        </button>
-        <span>Normal</span>
-    </div>
-    <div class="answer-container">
-        <button (click)="toggleAzul(2)">
-            <img src="../../../../assets/icons/encuesta-respuestas/{{ imagenAzulIndex === 2 ? 'blue-happy' : 'happy' }}.svg" alt=""/>
-        </button>
-        <span>Mucho</span>
+<div class="question-survey-container">
+    <p class="question-survey-container--question">{{ pregunta }}</p>
+    <div class="question-survey-container__answers-main">
+        <div class="question-survey-container__answers-main__answer-container">
+            <button class="question-survey-container__answers-main__answer-container--button" (click)="toggleAzul(0)">
+                <img src="../../../../assets/icons/encuesta-respuestas/{{ imagenAzulIndex === 0 ? 'blue-sad' : 'sad' }}.svg" alt=""/>
+            </button>
+            <span class="question-survey-container__answers-main__answer-container--span">Poco</span>
+        </div>
+        <div class="question-survey-container__answers-main__answer-container">
+            <button class="question-survey-container__answers-main__answer-container--button" (click)="toggleAzul(1)">
+                <img src="../../../../assets/icons/encuesta-respuestas/{{ imagenAzulIndex === 1 ? 'blue-normal' : 'normal' }}.svg" alt=""/>
+            </button>
+            <span class="question-survey-container__answers-main__answer-container--span">Normal</span>
+        </div>
+        <div class="question-survey-container__answers-main__answer-container">
+            <button class="question-survey-container__answers-main__answer-container--button" (click)="toggleAzul(2)">
+                <img src="../../../../assets/icons/encuesta-respuestas/{{ imagenAzulIndex === 2 ? 'blue-happy' : 'happy' }}.svg" alt=""/>
+            </button>
+            <span class="question-survey-container__answers-main__answer-container--span">Mucho</span>
+        </div>
     </div>
 </div>
 

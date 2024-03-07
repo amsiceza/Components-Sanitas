@@ -1,25 +1,32 @@
-p{
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 22px;
-    text-align: justify;
-}
-button{
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-span{
-    font-size: 12px;
-}
-.questions-container{
-    display: flex;
-    justify-content: space-around;
-    margin: 1rem 0;
-    .answer-container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2PX;
+.question-survey-container{
+    &--question{
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        text-align: justify;
     }
+    &__answers-main{
+        display: flex;
+        justify-content: space-around;
+        margin: 1rem 0;
+        &__answer-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2PX;
+            &--button{
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            }
+            &--span{
+                font-size: 12px;
+            }
+        }
+    }
+    
 }
+
+
+
+
