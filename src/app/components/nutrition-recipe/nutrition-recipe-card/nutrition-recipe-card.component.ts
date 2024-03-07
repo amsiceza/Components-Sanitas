@@ -8,17 +8,17 @@ import { NutritionRecipeInterface } from '../nutrition-recipe.interface';
   styleUrl: './nutrition-recipe-card.component.scss'
 })
 export class NutritionRecipeCardComponent implements OnInit{
-  @Input({required: true}) recipe!: NutritionRecipeInterface 
+  @Input({required: true}) config!: NutritionRecipeInterface 
   public difficultyTemplate!: DifficultyInfo
 
   ngOnInit(): void {
-    this.difficultyTemplate = DIFFICULTY[this.recipe?.difficulty]
+    this.difficultyTemplate = DIFFICULTY[this.config?.difficulty]
   }
 
 
   toggleFavorite(){
-    if(this.recipe !== undefined){
-      this.recipe.liked = !this.recipe.liked;
+    if(this.config !== undefined){
+      this.config.liked = !this.config.liked;
     }
     
   }
