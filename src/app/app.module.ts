@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +8,7 @@ import { NutritionMealsCardModule } from './components/nutrition-meals-card/nutr
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+import { NutritionRecipeCardModule } from './components/nutrition-recipe-card-wiew/nutrition-recipe-card.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +19,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SurveyProgressModule,
     NutritionRecipeModule,
     NutritionMealsCardModule,
+    NutritionRecipeModule,
+    NutritionRecipeCardModule,
     BrowserAnimationsModule,
+    
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent],
 

@@ -1,0 +1,24 @@
+
+@mixin isMovileSize {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin isTabletSize {
+  @media (min-width: 600px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin isDesktopSize {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin isBifDesktopSize {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
