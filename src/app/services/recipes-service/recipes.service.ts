@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, filter, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { RecipesInterface } from './recipes.interface';
 import { recipesMock } from './recipes.mock';
 
@@ -8,8 +8,8 @@ import { recipesMock } from './recipes.mock';
 })
 export class RecipesService {
 
-  private recipesSubject = new BehaviorSubject<RecipesInterface[]>([])
-  public recipes$ = this.recipesSubject.asObservable()
+  private recipesSubject = new BehaviorSubject<RecipesInterface[]>([]);
+  public recipes$ = this.recipesSubject.asObservable();
 
   private breakfastRecipesSubject = new BehaviorSubject<RecipesInterface[]>([]);
   public breakfastRecipes$ = this.breakfastRecipesSubject.asObservable();
@@ -23,42 +23,37 @@ export class RecipesService {
   private dinnerRecipesSubject = new BehaviorSubject<RecipesInterface[]>([]);
   public dinnerRecipes$ = this.dinnerRecipesSubject.asObservable();
 
+  private currentRecipes: RecipesInterface[] = [];
 
-  constructor() { }
+  constructor() { 
+    this.fetchRecipes(); 
+  }
 
   fetchRecipes(){
-    this.recipesSubject.next(recipesMock)
+    this.currentRecipes = recipesMock;
+    this.recipesSubject.next(this.currentRecipes);
+    this.updateMealTimeRecipes();
+  }
+
+  private updateMealTimeRecipes() {
+    this.breakfastRecipesSubject.next(this.getRecipesByMealTime("Desayuno"));
+    this.snackRecipesSubject.next(this.getRecipesByMealTime("Almuerzo"));
+    this.lunchRecipesSubject.next(this.getRecipesByMealTime("Comida"));
+    this.dinnerRecipesSubject.next(this.getRecipesByMealTime("Cena"));
   }
 
   toggleFavorite(recipeId: number): void {
-    const updatedRecipes = this.recipesSubject.getValue().map(recipe => {
+    this.currentRecipes = this.currentRecipes.map(recipe => {
       if (recipe.id === recipeId) {
         recipe.isFavorite = !recipe.isFavorite; 
       }
       return recipe;
     });
-    
-    this.recipesSubject.next(updatedRecipes);
-  }
-  
-  getRecipesByMealTime(mealTime: string) {
-    return this.recipesSubject.getValue().filter(recipe => recipe.mealTime.includes(mealTime));
-
+    this.recipesSubject.next(this.currentRecipes);
+    this.updateMealTimeRecipes();
   }
 
-  getBreakfastRecipes() {
-    this.breakfastRecipesSubject.next(this.getRecipesByMealTime("Desayuno"))
-  }
-
-  getSnackRecipes(): RecipesInterface[] {
-    return this.getRecipesByMealTime("Almuerzo");
-  }
-
-  getLunchRecipes(): RecipesInterface[] {
-    return this.getRecipesByMealTime("Comida");
-  }
-
-  getDinnerRecipes(): RecipesInterface[] {
-    return this.getRecipesByMealTime("Cena");
+  private getRecipesByMealTime(mealTime: string): RecipesInterface[] {
+    return this.currentRecipes.filter(recipe => recipe.mealTime.includes(mealTime));
   }
 }
