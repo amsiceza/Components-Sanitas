@@ -6,7 +6,7 @@
         </div>
         <div class="nutrition-meals-card__data__content">
             <ul *ngIf="isFront" class="nutrition-meals-card__data__content__list" @fadeInOut>
-                <li class="nutrition-meals-card__data__content__list--item" *ngFor="let item of config.frontList">{{item | truncate}}</li>
+                <li class="nutrition-meals-card__data__content__list--item" *ngFor="let item of config.frontList | slice:0:5">{{item  | truncate}}</li>
             </ul>
                 <div *ngIf="!isFront" class="nutrition-meals-card__data__content__back" @fadeInOut>
                     <p class="nutrition-meals-card__data__content__back--item" *ngFor="let item of config.backList | slice:0:5">{{item}}</p>
