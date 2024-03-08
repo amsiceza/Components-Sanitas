@@ -19,13 +19,8 @@
 
 <div class="nutrition-recipe-view">
   <div class="nutrition-recipe-view__swiper-container">
-    <div
-      *ngFor="let recipe of config"
-      class="nutrition-recipe-view__swiper-container__swiper-slide"
-    >
+    <div *ngFor="let recipe of config" class="nutrition-recipe-view__swiper-container__swiper-slide">
       <app-nutrition-recipe-card (favoriteChanges)="toggleFavorite($event)" [config]="recipe"></app-nutrition-recipe-card>
-
-      <p>{{recipe.liked}}</p>
     </div>
   </div>
 </div>

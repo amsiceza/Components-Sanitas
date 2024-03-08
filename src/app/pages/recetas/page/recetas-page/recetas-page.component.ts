@@ -16,12 +16,15 @@ export class RecetasPageComponent implements OnInit {
   constructor(private recipesService: RecipesService) { }
 
   ngOnInit(): void {
-    this.recipesService.breakfastRecipes$.subscribe(recipes => this.breakfastRecipes = recipes);
-    this.recipesService.snackRecipes$.subscribe(recipes => this.snackRecipes = recipes);
-    this.recipesService.lunchRecipes$.subscribe(recipes => this.lunchRecipes = recipes);
-    this.recipesService.dinnerRecipes$.subscribe(recipes => this.dinnerRecipes = recipes);
+    this.recipesService.recipes$.subscribe(recipes => {
+      this.breakfastRecipes = this.recipesService.getRecipesByMealTime("Desayuno");
+      this.snackRecipes = this.recipesService.getRecipesByMealTime("Almuerzo");
+      this.lunchRecipes = this.recipesService.getRecipesByMealTime("Comida");
+      this.dinnerRecipes = this.recipesService.getRecipesByMealTime("Cena");
+    });
 
     this.recipesService.fetchRecipes();
   }  
 }
+
 

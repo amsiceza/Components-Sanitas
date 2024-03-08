@@ -1,8 +1,10 @@
 <p>Desayuno</p>
 <app-nutrition-recipe-view [recipes]="breakfastRecipes"></app-nutrition-recipe-view>
+<p>Almuerzo</p>
+<app-nutrition-recipe-view [recipes]="snackRecipes"></app-nutrition-recipe-view>
+<p>Comida</p>
+<app-nutrition-recipe-view [recipes]="lunchRecipes"></app-nutrition-recipe-view>
+<p>Cena</p>
+<app-nutrition-recipe-view [recipes]="dinnerRecipes"></app-nutrition-recipe-view>
 
-
-<div *ngFor="let item of breakfastRecipes ">
-    <p>{{item.isFavorite}}</p>
-</div>
 

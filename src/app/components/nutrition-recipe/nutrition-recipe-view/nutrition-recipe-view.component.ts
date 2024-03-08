@@ -15,7 +15,6 @@ export class NutritionRecipeViewComponent implements OnChanges {
   constructor(private recipesService: RecipesService) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes["recipes"])
     if (changes['recipes']) {
       this.config = this.recipes?.map((recipe) => ({
         id: recipe.id,
@@ -30,7 +29,6 @@ export class NutritionRecipeViewComponent implements OnChanges {
   }
 
   toggleFavorite(response: number) {
-    console.log("Hols")
     this.recipesService.toggleFavorite(response);
   }
 }
