@@ -1,9 +1,10 @@
 export interface NutritionRecipeInterface {
+    id:number,
     title: string,
     difficulty: number,
     duration: number,
     liked: boolean,
-    backgrounImage: string
+    backgroundImage: string
     mealTime: string[]
 }
 
