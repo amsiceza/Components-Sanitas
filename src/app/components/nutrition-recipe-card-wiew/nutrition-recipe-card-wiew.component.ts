@@ -56,21 +56,6 @@ export class NutritionRecipeCardWiewComponent implements OnChanges {
         return;
       }
 
-      if (this.recipes) {
-        this.recipes.map((oldrecipe) => {
-          if (oldrecipe.id === configId) {
-            oldrecipe.id = recipe.id;
-            oldrecipe.recipeImg = recipe.recipeImg;
-            oldrecipe.name = recipe.name;
-            oldrecipe.difficulty = recipe.difficulty;
-            oldrecipe.duration = recipe.duration;
-            oldrecipe.isFavorite = recipe.isFavorite;
-            oldrecipe.groupAliments = recipe.groupAliments;
-            oldrecipe.mealTime = recipe.mealTime;
-          }
-        }
-        )
-        }
 
       const index = this.configs?.findIndex((config) => config.id === configId);
       if (index === -1) {
