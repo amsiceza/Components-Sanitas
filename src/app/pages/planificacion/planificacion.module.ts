@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlanificacionPageComponent } from './page/planificacion-page/planificacion-page.component';
+import { NutritionRecipeCardModule } from '../../components/nutrition-recipe-card-wiew/nutrition-recipe-card.module';
 
 
 
@@ -9,7 +10,8 @@ import { PlanificacionPageComponent } from './page/planificacion-page/planificac
     PlanificacionPageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    
   ]
 })
 export class PlanificacionModule { }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NutritionRecipeCardConfig } from '../nutrition-recipe-card.interface';
 import { DIFFICULTY, DifficultyInfo } from '../../../enums/difficulty.enum';
 import { animate, state, style, transition, trigger } from '@angular/animations';
@@ -30,6 +30,9 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 export class NutritionRecipeCardComponent implements OnInit {
 
   @Input({ required: true }) config!: NutritionRecipeCardConfig;
+  @Output() favoriteChanges = new EventEmitter<number>();
+  @Output() changeRecipe = new EventEmitter<{ id: number; mealTime: string[] }>();
+
   public difficultyTemplate!: DifficultyInfo
   isFront: boolean = true;
   isFavorite: boolean = false;
@@ -38,12 +41,18 @@ export class NutritionRecipeCardComponent implements OnInit {
     this.difficultyTemplate = DIFFICULTY[this.config?.difficulty]
   }
 
-  refreshClick() { }
+  refreshClick() { 
+    const response = {id: this.config.id, mealTime: this.config.mealTime}
+    this.changeRecipe.emit(response)
+  }
 
   changeSide() {
     this.isFront = !this.isFront;
   }
-  favoriteClick() { }
-  flip() { }
+  toggleFavorite() {
+
+    this.favoriteChanges.emit(this.config.id)
+  }
+
 
 }

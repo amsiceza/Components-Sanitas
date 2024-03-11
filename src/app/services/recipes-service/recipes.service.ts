@@ -59,4 +59,12 @@ export class RecipesService {
       map(recipes => this.getRecipesByMealTime("Cena"))
     );
   }
+  getAlternativeRecipe$(id: number, mealTime: string[]) {
+    const mealTimeString = mealTime[0];
+    const alternative = this.recipes$.pipe(
+      map(recipes => this.getRecipesByMealTime(mealTimeString).find(recipe => recipe.id !== id))
+    );
+
+    return alternative;
+  }
 }

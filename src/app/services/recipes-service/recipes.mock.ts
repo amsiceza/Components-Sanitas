@@ -139,4 +139,23 @@ export const recipesMock: RecipesInterface[] = [
       },
     ],
   },
+  {
+    id: 8,
+    recipeImg: 'https://img.freepik.com/fotos-premium/tostadas-melocoton-ricotta-adornadas-nueces-menta-fresca-frambuesas-sobre-tabla-cortar-madera_198639-601.jpg?w=740',
+    name: 'Tostadas francesas con frutas',
+    duration: 20,
+    difficulty: 1,
+    isFavorite: false,
+    mealTime: ['Desayuno'],
+    groupAliments: [
+      {
+        title: 'Ingredientes principales',
+        aliments: ['pan de molde', 'huevos', 'leche', 'frutas variadas (fresas, plátano, arándanos)'],
+      },
+      {
+        title: 'Condimentos',
+        aliments: ['canela', 'azúcar', 'miel'],
+      },
+    ],
+  },
 ];
