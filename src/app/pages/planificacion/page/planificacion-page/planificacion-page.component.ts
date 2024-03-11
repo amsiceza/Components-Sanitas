@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipesService } from '../../../../services/recipes-service/recipes.service';
 
 @Component({
   selector: 'app-planificacion-page',
@@ -8,6 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class PlanificacionPageComponent implements OnInit{
   today = new Date();
   weekDates: Date[] = [];
+
+  constructor(
+    private recipesService: RecipesService
+  ) {}
+ 
 
   ngOnInit() {
     const daysUntilSunday = 7 - this.today.getDay();

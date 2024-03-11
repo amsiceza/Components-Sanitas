@@ -19,9 +19,9 @@
 
             </div>
             <div class="nutrition-recipe-card__front__footer__icons-container">
-                <span class="nutrition-recipe-card__front__footer__icons-container__icon" *ngIf="isFavorite"><img class="icon" src="../../../../assets/icons/on.svg" alt="like button"></span>
-                <span class="nutrition-recipe-card__front__footer__icons-container__icon" *ngIf="!isFavorite" (click)="favoriteClick()"><img class="icon" src="../../../../assets/icons/off.svg" alt="unlike button"></span>
-                <span class="nutrition-recipe-card__front__footer__icons-container__icon flip-icon" (click)="flip()"><img (click)="changeSide()" class="icon" src="../../../../assets/icons/Flip.svg" alt="flip button"></span>
+                <span class="nutrition-recipe-card__front__footer__icons-container__icon" *ngIf="config.isFavorite" (click)="toggleFavorite()"><img class="icon" src="../../../../assets/icons/on.svg" alt="like button"></span>
+                <span class="nutrition-recipe-card__front__footer__icons-container__icon" *ngIf="!config.isFavorite" (click)="toggleFavorite()"><img class="icon" src="../../../../assets/icons/off.svg" alt="unlike button"></span>
+                <span class="nutrition-recipe-card__front__footer__icons-container__icon flip-icon"><img (click)="changeSide()" class="icon" src="../../../../assets/icons/Flip.svg" alt="flip button"></span>
             </div>    
         </div>
     </div>
@@ -34,7 +34,7 @@
                     {{item.title}}
                 </p>
                 <span class="nutrition-recipe-card__back__main__content__subtitle">
-                    {{item.subtitle}}
+                    {{item.aliments}}
                 </span>
             </div>
         </div>

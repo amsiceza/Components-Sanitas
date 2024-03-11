@@ -18,7 +18,9 @@ register();
     BrowserAnimationsModule,
   ],
   exports: [
-    NutritionRecipeCardWiewComponent
+    NutritionRecipeCardWiewComponent,
+    NutritionRecipeCardComponent,
+
   ], 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
