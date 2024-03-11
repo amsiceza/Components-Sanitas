@@ -10,8 +10,4 @@ export const questionAnswersMock = {
     secondOption: 1,
     thirdOption: 2
   }
-
-
-
-
 }
