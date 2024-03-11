@@ -1,10 +1,32 @@
-<p>Desayuno</p>
-<app-nutrition-recipe-view [recipes]="breakfastRecipes"></app-nutrition-recipe-view>
-<p>Almuerzo</p>
-<app-nutrition-recipe-view [recipes]="snackRecipes"></app-nutrition-recipe-view>
-<p>Comida</p>
-<app-nutrition-recipe-view [recipes]="lunchRecipes"></app-nutrition-recipe-view>
-<p>Cena</p>
-<app-nutrition-recipe-view [recipes]="dinnerRecipes"></app-nutrition-recipe-view>
+<div class="recipes-page-main">
+    <div class="recipes-page-main__search-container">
+        <div class="recipes-page-main__search-container__input-container">
+            <img src="../../../../../assets/icons/search/lens.svg" alt="">
+            <input class="recipes-page-main__search-container__input-container--input" [formControl]="searchCoursesControl" placeholder="Search..." type="text">
+        </div>
+        <img src="../../../../../assets/icons/search/burguer.svg" alt="">
+    </div>
+
+    <div class="recipes-page-main__content-container">
+        <div *ngIf="breakfastRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
+            <p class="recipes-page-main__content-container__recipe-container--p">Desayuno</p>
+            <app-nutrition-recipe-view [recipes]="breakfastRecipes"></app-nutrition-recipe-view>
+        </div>
+        <div *ngIf="snackRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
+            <p class="recipes-page-main__content-container__recipe-container--p">Almuerzo</p>
+            <app-nutrition-recipe-view [recipes]="snackRecipes"></app-nutrition-recipe-view>
+        </div>
+        
+        <div *ngIf="lunchRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
+            <p class="recipes-page-main__content-container__recipe-container--p">Comida</p>
+            <app-nutrition-recipe-view [recipes]="lunchRecipes"></app-nutrition-recipe-view>
+        </div>
+        <div *ngIf="dinnerRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
+            <p class="recipes-page-main__content-container__recipe-container--p">Cena</p>
+            <app-nutrition-recipe-view [recipes]="dinnerRecipes"></app-nutrition-recipe-view>
+        </div>  
+    </div>
+</div>
+
 
 
