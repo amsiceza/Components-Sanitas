@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DIFFICULTY, DifficultyInfo } from '../../../enums/difficulty.enum';
 import { NutritionRecipeInterface } from '../nutrition-recipe.interface';
 
@@ -9,6 +9,7 @@ import { NutritionRecipeInterface } from '../nutrition-recipe.interface';
 })
 export class NutritionRecipeCardComponent implements OnInit{
   @Input({required: true}) config!: NutritionRecipeInterface 
+  @Output() favoriteChanges = new EventEmitter<number>();
   public difficultyTemplate!: DifficultyInfo
 
   ngOnInit(): void {
@@ -17,9 +18,6 @@ export class NutritionRecipeCardComponent implements OnInit{
 
 
   toggleFavorite(){
-    if(this.config !== undefined){
-      this.config.liked = !this.config.liked;
-    }
-    
+      this.favoriteChanges.emit(this.config.id)
   }
 }

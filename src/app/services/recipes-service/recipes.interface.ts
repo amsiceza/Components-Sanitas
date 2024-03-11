@@ -1,9 +1,10 @@
 export interface RecipesInterface {
+    id:number,
     recipeImg: string,
     name: string,
     duration: number,
     difficulty: number,
-    isFavorite: string,
+    isFavorite: boolean,
     mealTime: string[]
     groupAliments: GroupAliments[]
 }
