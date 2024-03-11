@@ -1,8 +1,8 @@
 export interface QuestionSurveyInterface {
-    questions: string[];
+    questions: string;
     answers: {
-      sadOption: number;
-      normalOption: number;
-      happyOption: number;
+      firstOption: number;
+      secondOption: number;
+      thirdOption: number;
     };
   }

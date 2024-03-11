@@ -13,9 +13,7 @@ export class RecipesService {
 
   private currentRecipes: RecipesInterface[] = [];
 
-  constructor() { 
-    this.fetchRecipes(); 
-  }
+  constructor() { }
 
   fetchRecipes(){
     this.currentRecipes = recipesMock;

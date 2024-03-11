@@ -1,13 +1,36 @@
-export const questionAnswersMock = {
-    questions: [
-      '¿Cómo ha sido su experiencia general desde su última visita?',
-      '¿Ha notado alguna mejoría en sus síntomas desde el último seguimiento?',
-      '¿Cómo calificaría su nivel de molestia o dolor actualmente?',
-      '¿Ha seguido las recomendaciones médicas y ha estado tomando su medicación según lo indicado?',
-    ],
-    answers:{
-      sadOption: 0,
-      normalOption: 1,
-      happyOption: 2
+import { QuestionSurveyInterface } from "./survey.interface";
+
+export const surveyMock: QuestionSurveyInterface[] = [
+  {
+    questions: '¿Cómo ha sido su experiencia general desde su última visita?',
+    answers: {
+      firstOption: 0,
+      secondOption: 1,
+      thirdOption: 2
+    }
+  },
+  {
+    questions: '¿Ha notado alguna mejoría en sus síntomas desde el último seguimiento?',
+    answers: {
+      firstOption: 0,
+      secondOption: 1,
+      thirdOption: 2
+    }
+  },
+  {
+    questions: '¿Cómo calificaría su nivel de molestia o dolor actualmente?',
+    answers: {
+      firstOption: 0,
+      secondOption: 1,
+      thirdOption: 2
+    }
+  },
+  {
+    questions: '¿Ha seguido las recomendaciones médicas y ha estado tomando su medicación según lo indicado?',
+    answers: {
+      firstOption: 0,
+      secondOption: 1,
+      thirdOption: 2
     }
   }
+]

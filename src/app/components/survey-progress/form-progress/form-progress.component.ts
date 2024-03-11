@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { questionAnswersMock } from '../mock';
-import { QuestionSurveyInterface } from '../question-survey.interface';
-import { compileNgModule } from '@angular/compiler';
+import { SurveyService } from '../../../services/survey-service/survey.service';
+import { QuestionSurveyInterface } from '../../../services/survey-service/survey.interface';
 
 
 @Component({
@@ -12,27 +11,27 @@ import { compileNgModule } from '@angular/compiler';
 })
 export class FormProgressComponent implements OnInit {
   encuestaForm!: FormGroup;
-  config: QuestionSurveyInterface = questionAnswersMock
+  @Input() config: QuestionSurveyInterface[] | undefined
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private surveyService: SurveyService) {}
 
   ngOnInit(): void {
     this.encuestaForm = this.formBuilder.group({});
-    this.config.questions.forEach((question, index) => {
+    this.config?.forEach((question, index) => {
       this.encuestaForm?.addControl(
-        'question' + index,
+        "question" + index,
         this.formBuilder.control('', Validators.required)
       );
     });
   }
 
-  setResponse(response: string, index: number) {
-    this.encuestaForm.get('question' + index)?.setValue(response);
+  setResponse(response: any, index: number) {
+    this.encuestaForm.get('question' + index)?.setValue(response.answer);
   }
 
   onSubmit() {
     if (this.encuestaForm?.valid) {
-      console.log('Formulario válido:', this.encuestaForm.value);
+      this.surveyService.submitSurvey(this.encuestaForm.value)
       this.encuestaForm.reset();
     } else {
       console.log('Formulario inválido. Por favor, complete todas las preguntas.');

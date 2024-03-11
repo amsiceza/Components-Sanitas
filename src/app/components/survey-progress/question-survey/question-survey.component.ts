@@ -8,9 +8,9 @@ import { ANSWERS, AnswerInfo } from '../answers.enum';
 })
 export class QuestionSurveyComponent {
   @Input() question: string | undefined;
-  @Output() responseSelected = new EventEmitter<string>();
+  @Output() responseSelected = new EventEmitter<{}>();
 
-  imagenAzulIndex: number = -1;
+  imgBlueIndex: number = -1;
 
   public answerTemplate: any
 
@@ -19,12 +19,15 @@ export class QuestionSurveyComponent {
   }
 
   toggleAzul(index: number) {
-    const selectedAnswer = this.answerTemplate[index].value;
-    this.responseSelected.emit(selectedAnswer);
-    if (this.imagenAzulIndex === index) {
-      this.imagenAzulIndex = -1;
+    const response = {
+      question:this.question,
+      answer: this.answerTemplate[index].value
+    }
+    this.responseSelected.emit(response);
+    if (this.imgBlueIndex === index) {
+      this.imgBlueIndex = -1;
     } else {
-      this.imagenAzulIndex = index;
+      this.imgBlueIndex = index;
     }
   }
 }
