@@ -1,28 +1,38 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { DIAS, MESES } from '../../../../constants/dates.constants';
 import { MEALS } from '../../../../constants/meals.constants';
 import { RecipesService } from '../../../../services/recipes-service/recipes.service';
 import { RecipesInterface } from '../../../../services/recipes-service/recipes.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-nutrition-week-meals',
   templateUrl: './nutrition-week-meals.component.html',
   styleUrl: './nutrition-week-meals.component.scss'
 })
-export class NutritionWeekMealsComponent implements OnInit{
+export class NutritionWeekMealsComponent implements OnInit, OnDestroy{
   @Input({required: true}) day!: Date;
   spanishDays = DIAS;
   spanishMonths = MESES;
   mealsButtons: string[] = [];
   recipes: RecipesInterface[] = [];
+  recipesSubscription!: Subscription;
+  mealTime: string = MEALS.BREAKFAST;
 
   constructor( private recipesService: RecipesService ) {}
+
 
   ngOnInit() {
     Object.values(MEALS).forEach((meal) => {
       this.mealsButtons.push(meal);
     });
-    this.uppdateRecipes(MEALS.BREAKFAST);
+   
+    this.recipesSubscription = this.recipesService.recipes$.subscribe((recipes) => {
+      this.uppdateRecipes(this.mealTime);
+    });
+  }
+  ngOnDestroy(): void {
+    this.recipesSubscription.unsubscribe();
   }
 
   public handleMealClick(meal: string) {

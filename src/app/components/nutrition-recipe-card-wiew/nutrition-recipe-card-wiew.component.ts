@@ -27,7 +27,7 @@ export class NutritionRecipeCardWiewComponent implements OnChanges{
         difficulty: recipe.difficulty,
         duration: recipe.duration,
         isFavorite: recipe.isFavorite,
-        backTitle: recipe.name,
+        backTitle: "Grupo de alimentos",
         backInfo: recipe.groupAliments,
         mealTime: recipe.mealTime,
       
@@ -37,7 +37,6 @@ export class NutritionRecipeCardWiewComponent implements OnChanges{
 
   
     toggleFavorite(response: number) {
-      console.log(response);
       this.recipesService.toggleFavorite(response);
     }
 
@@ -49,7 +48,7 @@ export class NutritionRecipeCardWiewComponent implements OnChanges{
           this.configs[recipeIndex].frontTitle = recipe.name;
           this.configs[recipeIndex].difficulty = recipe.difficulty;
           this.configs[recipeIndex].duration = recipe.duration;
-          this.configs[recipeIndex].backTitle = recipe.name;
+          this.configs[recipeIndex].backTitle = "Grupo de alimentos";
           this.configs[recipeIndex].backInfo = recipe.groupAliments;
         }
       });

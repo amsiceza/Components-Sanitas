@@ -12,20 +12,20 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       transition(":enter", [
         style({
           opacity: 0,
-          
+
         }),
-        animate("500ms", style({ opacity: 1,  }))
+        animate("500ms", style({ opacity: 1, }))
       ]),
       transition(":leave", [
         style({
-         display: "none",
-          
+          display: "none",
+
         }),
         animate("500ms", style({ opacity: 0, }))
       ])
     ]),
   ]
-  
+
 })
 export class NutritionRecipeCardComponent implements OnInit {
 
@@ -41,8 +41,8 @@ export class NutritionRecipeCardComponent implements OnInit {
     this.difficultyTemplate = DIFFICULTY[this.config?.difficulty]
   }
 
-  refreshClick() { 
-    const response = {id: this.config.id, mealTime: this.config.mealTime}
+  refreshClick() {
+    const response = { id: this.config.id, mealTime: this.config.mealTime }
     this.changeRecipe.emit(response)
   }
 
@@ -50,7 +50,6 @@ export class NutritionRecipeCardComponent implements OnInit {
     this.isFront = !this.isFront;
   }
   toggleFavorite() {
-
     this.favoriteChanges.emit(this.config.id)
   }
 
