@@ -30,12 +30,14 @@ export class NutritionWeekMealsComponent implements OnInit, OnDestroy{
     this.recipesSubscription = this.recipesService.recipes$.subscribe((recipes) => {
       this.uppdateRecipes(this.mealTime);
     });
+ 
   }
   ngOnDestroy(): void {
     this.recipesSubscription.unsubscribe();
   }
 
   public handleMealClick(meal: string) {
+    this.mealTime = meal;
     this.uppdateRecipes(meal);
   }
 

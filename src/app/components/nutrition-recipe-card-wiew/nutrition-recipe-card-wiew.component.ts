@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NutritionRecipeCardConfig } from './nutrition-recipe-card.interface';
 import { nutritionRecipeCardMock } from './nutrition-recipe-card-mock';
 import { RecipesService } from '../../services/recipes-service/recipes.service';
@@ -10,12 +10,14 @@ import { group } from '@angular/animations';
   templateUrl: './nutrition-recipe-card-wiew.component.html',
   styleUrl: './nutrition-recipe-card-wiew.component.scss'
 })
-export class NutritionRecipeCardWiewComponent implements OnChanges{
-  @Input({required: true}) recipes: RecipesInterface[] | undefined;
-  public configs : NutritionRecipeCardConfig[] | undefined;
-  
+export class NutritionRecipeCardWiewComponent implements OnChanges {
+  @Input({ required: true }) recipes: RecipesInterface[] | undefined;
+  @Input({ required: true }) mealTime: string | undefined;
+  public configs: NutritionRecipeCardConfig[] | undefined;
+
   constructor(
-    private recipesService: RecipesService
+    private recipesService: RecipesService,
+
   ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -30,31 +32,43 @@ export class NutritionRecipeCardWiewComponent implements OnChanges{
         backTitle: "Grupo de alimentos",
         backInfo: recipe.groupAliments,
         mealTime: recipe.mealTime,
-      
+
       }));
     }
   }
 
-  
-    toggleFavorite(response: number) {
-      this.recipesService.toggleFavorite(response);
-    }
 
-    changeRecipe(response: {id: number, mealTime: string[]}){ {
-      this.recipesService.getAlternativeRecipe$(response.id, response.mealTime).subscribe((recipe) => {
-        const recipeIndex = this.configs?.findIndex((config) => config.id === response.id);
-        if (this.configs !== undefined && recipe !== undefined && recipeIndex !== undefined && recipeIndex !== -1) {
-          this.configs[recipeIndex].backgroundImage = recipe.recipeImg;
-          this.configs[recipeIndex].frontTitle = recipe.name;
-          this.configs[recipeIndex].difficulty = recipe.difficulty;
-          this.configs[recipeIndex].duration = recipe.duration;
-          this.configs[recipeIndex].backTitle = "Grupo de alimentos";
-          this.configs[recipeIndex].backInfo = recipe.groupAliments;
-        }
-      });
-  
+  toggleFavorite(response: number) {
+    this.recipesService.toggleFavorite(response);
   }
-}
+
+  changeRecipe(response: number) {
+    {
+      const currentIds = this.recipes?.map((config) => config.id);
+      if (currentIds !== undefined) {
+        const alternativeRecipe = this.recipesService.getAlternativeRecipe$(currentIds, this.mealTime!);
+        if (this.configs !== undefined && alternativeRecipe !== undefined) {
+          this.configs.filter((config) => config.id === response).map((config) => {
+            config.id = alternativeRecipe.id;
+            config.backgroundImage = alternativeRecipe.recipeImg;
+            config.frontTitle = alternativeRecipe.name;
+            config.difficulty = alternativeRecipe.difficulty;
+            config.duration = alternativeRecipe.duration;
+            config.backTitle = "Grupo de alimentos";
+            config.backInfo = alternativeRecipe.groupAliments;
+            config.mealTime = alternativeRecipe.mealTime;
+
+          });
+
+        }
+      }
+
+
+
+
+
+    }
+  }
 
 
 }

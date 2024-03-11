@@ -31,7 +31,7 @@ export class NutritionRecipeCardComponent implements OnInit {
 
   @Input({ required: true }) config!: NutritionRecipeCardConfig;
   @Output() favoriteChanges = new EventEmitter<number>();
-  @Output() changeRecipe = new EventEmitter<{ id: number; mealTime: string[] }>();
+  @Output() changeRecipe = new EventEmitter<number>();
 
   public difficultyTemplate!: DifficultyInfo
   isFront: boolean = true;
@@ -42,8 +42,8 @@ export class NutritionRecipeCardComponent implements OnInit {
   }
 
   refreshClick() {
-    const response = { id: this.config.id, mealTime: this.config.mealTime }
-    this.changeRecipe.emit(response)
+    
+    this.changeRecipe.emit(this.config.id)
   }
 
   changeSide() {

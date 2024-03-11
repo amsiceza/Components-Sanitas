@@ -15,7 +15,7 @@ export class RecipesService {
 
   constructor() { }
 
-  fetchRecipes(){
+  fetchRecipes() {
     this.currentRecipes = recipesMock;
     this.recipesSubject.next(this.currentRecipes);
   }
@@ -23,10 +23,10 @@ export class RecipesService {
   toggleFavorite(recipeId: number): void {
     this.currentRecipes = this.currentRecipes.map(recipe => {
       if (recipe.id === recipeId) {
-        recipe.isFavorite = !recipe.isFavorite; 
-          console.log("receta cambiada fav",recipe);
+        recipe.isFavorite = !recipe.isFavorite;
+        console.log("receta cambiada fav", recipe);
       }
-    
+
       return recipe;
     });
     this.recipesSubject.next(this.currentRecipes);
@@ -59,12 +59,12 @@ export class RecipesService {
       map(recipes => this.getRecipesByMealTime("Cena"))
     );
   }
-  getAlternativeRecipe$(id: number, mealTime: string[]) {
-    const mealTimeString = mealTime[0];
-    const alternative = this.recipes$.pipe(
-      map(recipes => this.getRecipesByMealTime(mealTimeString).find(recipe => recipe.id !== id))
+  getAlternativeRecipe$(ids: number[], mealTime: string) {
+    const alternative = this.currentRecipes.find(recipe =>
+      !ids.includes(recipe.id) && recipe.mealTime.includes(mealTime)
     );
+    console.log("receta alternativa", alternative);
+    return alternative ? alternative : undefined;
 
-    return alternative;
   }
 }

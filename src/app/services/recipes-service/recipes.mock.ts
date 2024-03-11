@@ -18,6 +18,14 @@ export const recipesMock: RecipesInterface[] = [
         title: 'Condimentos',
         aliments: ['sal', 'pimienta'],
       },
+      {
+        title: 'Ingredientes principales',
+        aliments: ['patatas', 'huevos', 'chorizo'],
+      },
+      {
+        title: 'Condimentos',
+        aliments: ['sal', 'pimienta'],
+      },
     ],
   },
   {

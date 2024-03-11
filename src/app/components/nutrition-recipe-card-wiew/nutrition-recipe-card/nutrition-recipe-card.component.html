@@ -29,12 +29,12 @@
     <div class="nutrition-recipe-card__back" @changeSide *ngIf="!isFront">
         <div class="nutrition-recipe-card__back__main">
             <p class="nutrition-recipe-card__back__main__title"> {{config.backTitle}}</p>
-            <div class="nutrition-recipe-card__back__main__content" *ngFor="let item of config.backInfo">
+            <div class="nutrition-recipe-card__back__main__content" *ngFor="let item of config.backInfo  ">
                 <p class="nutrition-recipe-card__back__main__content__title" >
                     {{item.title}}
                 </p>
                 <span class="nutrition-recipe-card__back__main__content__subtitle">
-                    {{item.aliments}}
+                    {{ item.aliments.join(', ') }}
                 </span>
             </div>
         </div>
