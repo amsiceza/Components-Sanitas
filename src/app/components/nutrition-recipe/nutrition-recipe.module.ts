@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NutritionRecipeCardComponent } from './nutrition-recipe-card/nutrition-recipe-card.component';
 import { register } from 'swiper/element/bundle';
@@ -9,12 +9,13 @@ register();
 @NgModule({
   declarations: [NutritionRecipeCardComponent, NutritionRecipeViewComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    
   ],
   exports: [
-    NutritionRecipeViewComponent
+    NutritionRecipeViewComponent,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 
 })
 export class NutritionRecipeModule { }

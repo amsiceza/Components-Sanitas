@@ -1,6 +1,6 @@
 
 <div class="recipe-card">
-    <div class="recipe-card__background" [style.background-image]="'url(' + config.backgrounImage + ')'">
+    <div class="recipe-card__background" [style.background-image]="'url(' + config.backgroundImage + ')'">
         <div class="recipe-card__background__liked-container">
             <span class="recipe-card__background__liked-container__like-icon" *ngIf="!config?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/off.svg" alt=""></span>
             <span class="recipe-card__background__liked-container__like-icon" *ngIf="config?.liked" (click)="toggleFavorite()"><img src="../../../assets/icons/on.svg" alt=""></span>

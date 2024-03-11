@@ -1,4 +1,4 @@
-<div class="nutrition-recipe-view">
+<!-- <div class="nutrition-recipe-view">
   <swiper-container
     class="nutrition-recipe-view__swiper-container"
     slides-per-view="2.1"
@@ -6,13 +6,27 @@
     loop="true"
     css-mode="true"
     pagination="true"
+
   >
     <swiper-slide
-      *ngFor="let recipe of recipesArray"
+      *ngFor="let recipe of config"
       class="nutrition-recipe-view__swiper-container__swiper-slide"
     >
-      <app-nutrition-recipe-card [config]="recipe"></app-nutrition-recipe-card>
+      <app-nutrition-recipe-card (favoriteChanges)="toggleFavorite($event)" [config]="recipe"></app-nutrition-recipe-card>
     </swiper-slide>
   </swiper-container>
+</div> -->
+
+<div class="nutrition-recipe-view">
+  <div class="nutrition-recipe-view__swiper-container">
+    <div *ngFor="let recipe of config" class="nutrition-recipe-view__swiper-container__swiper-slide">
+      <app-nutrition-recipe-card (favoriteChanges)="toggleFavorite($event)" [config]="recipe"></app-nutrition-recipe-card>
+    </div>
+  </div>
 </div>
+
+
+
+
+
 

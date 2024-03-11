@@ -103,24 +103,24 @@
                 }
 
 
-                &__difficulty--easy,
-                &__difficulty--medium,
-                &__difficulty--hard {
+                &__easy,
+                &__medium,
+                &__hard {
                     font-size: 12px;
                     font-weight: 700;
                     line-height: 18px;
                 }
 
-                &__difficulty--easy {
+                &__easy {
                     color: #6fdc8c;
 
                 }
 
-                &__difficulty--medium {
+                &__medium {
                     color: #F1AD71;
                 }
 
-                &__difficulty--hard {
+                &__hard {
                     color: #DB3907;
                 }
             }
