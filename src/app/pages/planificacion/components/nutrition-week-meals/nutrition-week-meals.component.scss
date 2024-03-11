@@ -16,11 +16,32 @@
     }
 
     &__meal-options{
-        display: flex;
         width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        gap: 8px;
-        margin: 16px 0;
+
+        @media (width > 400px) {
+            &--desktop{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 8px;
+                margin: 16px 0;
+            }
+            
+            &--swiper{
+                display: none;
+            }
+        }
+
+        @media (width <= 400px) {
+            
+            &--desktop{
+                display: none;
+            }
+
+            &--swiper{
+                gap: 8px;
+                margin: 16px 0;
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlanificacionPageComponent } from './page/planificacion-page/planificacion-page.component';
 import { NutritionWeekMealsComponent } from './components/nutrition-week-meals/nutrition-week-meals.component';
@@ -15,6 +15,7 @@ import { NutritionRecipeCardModule } from '../../components/nutrition-recipe-car
   imports: [
     CommonModule,
      NutritionRecipeCardModule,
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PlanificacionModule { }
