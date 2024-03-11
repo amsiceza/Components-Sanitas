@@ -4,6 +4,9 @@ import { MEALS } from '../../../../constants/meals.constants';
 import { RecipesService } from '../../../../services/recipes-service/recipes.service';
 import { RecipesInterface } from '../../../../services/recipes-service/recipes.interface';
 import { Subscription } from 'rxjs';
+import { register } from 'swiper/element/bundle';
+
+register();
 
 @Component({
   selector: 'app-nutrition-week-meals',
@@ -32,6 +35,7 @@ export class NutritionWeekMealsComponent implements OnInit, OnDestroy{
     });
  
   }
+  
   ngOnDestroy(): void {
     this.recipesSubscription.unsubscribe();
   }

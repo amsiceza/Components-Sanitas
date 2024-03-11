@@ -1,7 +1,14 @@
 <div class="nutrition-week-meals">
     <p class="nutrition-week-meals--title">{{spanishDays[day.getDay()]}} {{day.getDate()}} {{spanishMonths[day.getMonth()]}}</p>
     <div class="nutrition-week-meals__meal-options">
-        <button *ngFor="let button of mealsButtons" (click)="handleMealClick(button)">{{button}}</button>
+        <div class="nutrition-week-meals__meal-options--desktop">
+            <button *ngFor="let button of mealsButtons" (click)="handleMealClick(button)">{{button}}</button>
+        </div>
+        <swiper-container class="nutrition-week-meals__meal-options--swiper" slides-per-view="3">
+            <swiper-slide *ngFor="let button of mealsButtons">
+                <button (click)="handleMealClick(button)">{{button}}</button>
+            </swiper-slide>
+        </swiper-container>
     </div>
     <app-nutrition-recipe-card-wiew [recipes]="recipes" [mealTime]="mealTime"></app-nutrition-recipe-card-wiew>
 </div>
