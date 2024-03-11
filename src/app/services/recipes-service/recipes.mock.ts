@@ -166,4 +166,137 @@ export const recipesMock: RecipesInterface[] = [
       },
     ],
   },
+  {
+    id: 9,
+    recipeImg: 'https://chapela.es/wp-content/uploads/2020/03/bizcocho-de-chocolate-y-coco-1.jpeg',
+    name: 'Bizcocho de chocolate y coco',
+    duration: 50,
+    difficulty: 1,
+    isFavorite: false,
+    mealTime: ['Desayuno', 'Almuerzo', 'Merienda'],
+    groupAliments: [
+      {
+        title: 'Ingredientes principales',
+        aliments: ['harina', 'azúcar', 'huevos', 'cacao en polvo', 'coco rallado'],
+      },
+      {
+        title: 'Condimentos',
+        aliments: ['levadura', 'esencia de vainilla', 'sal'],
+      },
+    ],
+  },
+  {
+    id: 10,
+    recipeImg: 'https://es.cravingsjournal.com/wp-content/uploads/2023/07/granola-con-matequilla-de-mani-3.jpg',
+    name: 'Granola crujiente de mantequilla',
+    duration: 40,
+    difficulty: 0,
+    isFavorite: true,
+    mealTime: ['Desayuno', 'Almuerzo', 'Merienda'],
+    groupAliments: [
+      {
+        title: 'Ingredientes principales',
+        aliments: ['avena', 'mantequilla de maní', 'miel', 'frutos secos (nueces, almendras)'],
+      },
+      {
+        title: 'Condimentos',
+        aliments: ['canela', 'sal'],
+      },
+    ],
+  },
+  {
+    id: 12,
+    recipeImg: 'https://mimaflor.es/wp-content/uploads/2020/12/RISOTTO.jpg',
+    name: 'Risotto de champiñones y espinacas',
+    duration: 45,
+    difficulty: 2,
+    isFavorite: false,
+    mealTime: ['Comida', 'Cena'],
+    groupAliments: [
+      {
+        title: 'Ingredientes principales',
+        aliments: ['arroz arborio', 'champiñones', 'espinacas', 'caldo de verduras'],
+      },
+      {
+        title: 'Condimentos',
+        aliments: ['cebolla', 'ajo', 'vino blanco', 'queso parmesano'],
+      },
+    ],
+  },
+  {
+    id: 13,
+    recipeImg: 'https://images.hola.com/imagenes/cocina/recetas/20180226120919/crema-calabaza-jengibre/0-724-626/crema-calabaza-t.jpg',
+    name: 'Sopa de calabaza y jengibre',
+    duration: 35,
+    difficulty: 1,
+    isFavorite: true,
+    mealTime: ['Comida', 'Cena'],
+    groupAliments: [
+      {
+        title: 'Ingredientes principales',
+        aliments: ['calabaza', 'cebolla', 'jengibre', 'caldo de pollo'],
+      },
+      {
+        title: 'Condimentos',
+        aliments: ['nata', 'nuez moscada', 'canela'],
+      },
+    ], 
+  },
+  {
+    id: 14,
+    recipeImg: 'https://imag.bonviveur.com/espaguetis-carbonara-primer-plano.jpg',
+    name: 'Espaguetis a la carbonara',
+    duration: 25,
+    difficulty: 1,
+    isFavorite: true,
+    mealTime: ['Comida', 'Cena'],
+    groupAliments: [
+      {
+        title: 'Ingredientes principales',
+        aliments: ['espaguetis', 'bacon', 'huevos'],
+      },
+      {
+        title: 'Condimentos',
+        aliments: ['queso parmesano', 'pimienta negra', 'nuez moscada'],
+      },
+    ],
+  },
+  {
+    id: 15,
+    recipeImg: 'https://cdn7.kiwilimon.com/recetaimagen/34703/40304.jpg',
+    name: 'Ensalada de quinoa y aguacate',
+    duration: 20,
+    difficulty: 0,
+    isFavorite: false,
+    mealTime: ['Almuerzo', 'Comida', 'Merienda', 'Cena'],
+    groupAliments: [
+      {
+        title: 'Ingredientes principales',
+        aliments: ['quinoa', 'aguacate', 'tomate', 'pepino'],
+      },
+      {
+        title: 'Condimentos',
+        aliments: ['limón', 'cilantro', 'aceite de oliva'],
+      },
+    ],
+  },
+  {
+    id: 16,
+    recipeImg: 'https://imag.bonviveur.com/tarta-de-manzana.jpg',
+    name: 'Tarta de manzana casera',
+    duration: 60,
+    difficulty: 2,
+    isFavorite: false,
+    mealTime: ['Desayuno', 'Almuerzo', 'Merienda'],
+    groupAliments: [
+      {
+        title: 'Ingredientes principales',
+        aliments: ['manzanas', 'harina', 'azúcar', 'mantequilla'],
+      },
+      {
+        title: 'Condimentos',
+        aliments: ['canela', 'limón', 'azúcar glas'],
+      },
+    ],
+  }  
 ];
