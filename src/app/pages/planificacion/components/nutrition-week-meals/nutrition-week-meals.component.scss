@@ -1,0 +1,17 @@
+.nutrition-week-meals{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    @media (width > 400px) {
+        max-width: 520px;
+    }
+
+    &__meal-options{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

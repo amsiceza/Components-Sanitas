@@ -1,1 +1,7 @@
-<p>planificacion-page works!</p>
+<div class="planification-page">
+    <div class="planification-page__week-planification">
+        <div *ngFor="let day of weekDates">
+            <app-nutrition-week-meals [day]="day"></app-nutrition-week-meals>
+        </div>
+    </div>
+</div>
