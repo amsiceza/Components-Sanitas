@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DIAS, MESES } from '../../../../constants/dates.constants';
 import { MEALS } from '../../../../constants/meals.constants';
+import { RecipesService } from '../../../../services/recipes-service/recipes.service';
+import { RecipesInterface } from '../../../../services/recipes-service/recipes.interface';
 
 @Component({
   selector: 'app-nutrition-week-meals',
@@ -12,10 +14,22 @@ export class NutritionWeekMealsComponent implements OnInit{
   spanishDays = DIAS;
   spanishMonths = MESES;
   mealsButtons: string[] = [];
+  recipes: RecipesInterface[] = [];
+
+  constructor( private recipesService: RecipesService ) {}
 
   ngOnInit() {
     Object.values(MEALS).forEach((meal) => {
       this.mealsButtons.push(meal);
     });
+    this.uppdateRecipes(MEALS.BREAKFAST);
+  }
+
+  public handleMealClick(meal: string) {
+    this.uppdateRecipes(meal);
+  }
+
+  private uppdateRecipes(mealTime: string) {
+    this.recipes = this.recipesService.getRecipesByMealTime(mealTime);
   }
 }
