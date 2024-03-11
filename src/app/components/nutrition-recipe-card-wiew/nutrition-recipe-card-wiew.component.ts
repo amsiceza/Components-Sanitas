@@ -37,6 +37,7 @@ export class NutritionRecipeCardWiewComponent implements OnChanges{
 
   
     toggleFavorite(response: number) {
+      console.log(response);
       this.recipesService.toggleFavorite(response);
     }
 

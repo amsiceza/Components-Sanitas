@@ -16,6 +16,7 @@ export class PlanificacionPageComponent implements OnInit{
  
 
   ngOnInit() {
+    this.recipesService.fetchRecipes();
     const daysUntilSunday = 7 - this.today.getDay();
 
     for (let i = 0; i <= daysUntilSunday; i++) {

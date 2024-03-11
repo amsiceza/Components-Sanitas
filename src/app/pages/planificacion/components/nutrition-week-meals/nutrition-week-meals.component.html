@@ -2,6 +2,10 @@
     <h1>{{spanishDays[day.getDay()]}} {{day.getDate()}} {{spanishMonths[day.getMonth()]}}</h1>
     <div class="nutrition-week-meals__meal-options">
         <button *ngFor="let button of mealsButtons" (click)="handleMealClick(button)">{{button}}</button>
-    </div>
-</div>
 
+    </div>
+  
+        <app-nutrition-recipe-card-wiew [recipes]="recipes"></app-nutrition-recipe-card-wiew>
+ 
+
+</div>
