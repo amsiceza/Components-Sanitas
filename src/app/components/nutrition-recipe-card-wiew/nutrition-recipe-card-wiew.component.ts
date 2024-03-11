@@ -1,9 +1,8 @@
-import { ChangeDetectorRef, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { NutritionRecipeCardConfig } from './nutrition-recipe-card.interface';
-import { nutritionRecipeCardMock } from './nutrition-recipe-card-mock';
 import { RecipesService } from '../../services/recipes-service/recipes.service';
 import { RecipesInterface } from '../../services/recipes-service/recipes.interface';
-import { group } from '@angular/animations';
+
 import { take } from 'rxjs';
 
 @Component({
@@ -11,7 +10,7 @@ import { take } from 'rxjs';
   templateUrl: './nutrition-recipe-card-wiew.component.html',
   styleUrl: './nutrition-recipe-card-wiew.component.scss'
 })
-export class NutritionRecipeCardWiewComponent implements OnChanges, OnDestroy {
+export class NutritionRecipeCardWiewComponent implements OnChanges {
   @Input({ required: true }) recipes: RecipesInterface[] | undefined;
   @Input({ required: true }) mealTime: string | undefined;
   public configs: NutritionRecipeCardConfig[] = [];
@@ -21,7 +20,7 @@ export class NutritionRecipeCardWiewComponent implements OnChanges, OnDestroy {
   constructor(
     private recipesService: RecipesService,
   ) {
-
+  
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -41,9 +40,6 @@ export class NutritionRecipeCardWiewComponent implements OnChanges, OnDestroy {
     }
   }
 
-  ngOnDestroy(): void {
-      
-  }
 
   toggleFavorite(response: number) {
     this.recipesService.toggleFavorite(response);
@@ -52,20 +48,34 @@ export class NutritionRecipeCardWiewComponent implements OnChanges, OnDestroy {
 
   changeRecipe(configId: number) {
     this.recipesIds = this.configs?.map((config) => config.id) || [];
-
     this.recipesService.getAlternativeRecipe$(this.recipesIds, this.mealTime!)
     .pipe(take(1))
     .subscribe((recipe) => {
-
+    
       if (!recipe) {
         return;
       }
+
+      if (this.recipes) {
+        this.recipes.map((oldrecipe) => {
+          if (oldrecipe.id === configId) {
+            oldrecipe.id = recipe.id;
+            oldrecipe.recipeImg = recipe.recipeImg;
+            oldrecipe.name = recipe.name;
+            oldrecipe.difficulty = recipe.difficulty;
+            oldrecipe.duration = recipe.duration;
+            oldrecipe.isFavorite = recipe.isFavorite;
+            oldrecipe.groupAliments = recipe.groupAliments;
+            oldrecipe.mealTime = recipe.mealTime;
+          }
+        }
+        )
+        }
 
       const index = this.configs?.findIndex((config) => config.id === configId);
       if (index === -1) {
         return;
       }
-
       this.configs[index] = {
         id: recipe.id,
         backgroundImage: recipe.recipeImg,

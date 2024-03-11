@@ -25,7 +25,6 @@ export class RecipesService {
     this.currentRecipes = this.currentRecipes.map(recipe => {
       if (recipe.id === recipeId) {
         recipe.isFavorite = !recipe.isFavorite;
-        console.log("receta cambiada fav", recipe);
       }
 
       return recipe;

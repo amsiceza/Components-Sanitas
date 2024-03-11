@@ -18,14 +18,7 @@ export const recipesMock: RecipesInterface[] = [
         title: 'Condimentos',
         aliments: ['sal', 'pimienta'],
       },
-      {
-        title: 'Ingredientes principales',
-        aliments: ['patatas', 'huevos', 'chorizo'],
-      },
-      {
-        title: 'Condimentos',
-        aliments: ['sal', 'pimienta'],
-      },
+     
     ],
   },
   {
@@ -158,7 +151,7 @@ export const recipesMock: RecipesInterface[] = [
     groupAliments: [
       {
         title: 'Ingredientes principales',
-        aliments: ['pan de molde', 'huevos', 'leche', 'frutas variadas (fresas, plátano, arándanos)'],
+        aliments: ['pan de molde', 'huevos', 'leche'],
       },
       {
         title: 'Condimentos',
