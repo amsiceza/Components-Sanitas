@@ -42,7 +42,6 @@ export class NutritionRecipeCardComponent implements OnInit {
   }
 
   refreshClick() {
-    
     this.changeRecipe.emit(this.config.id)
   }
 

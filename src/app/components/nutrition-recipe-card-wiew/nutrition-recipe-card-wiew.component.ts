@@ -48,6 +48,7 @@ export class NutritionRecipeCardWiewComponent implements OnChanges {
       if (currentIds !== undefined) {
         const alternativeRecipe = this.recipesService.getAlternativeRecipe$(currentIds, this.mealTime!);
         if (this.configs !== undefined && alternativeRecipe !== undefined) {
+          console.log(alternativeRecipe, "alternativeRecipe");
           this.configs.filter((config) => config.id === response).map((config) => {
             config.id = alternativeRecipe.id;
             config.backgroundImage = alternativeRecipe.recipeImg;
@@ -62,11 +63,6 @@ export class NutritionRecipeCardWiewComponent implements OnChanges {
 
         }
       }
-
-
-
-
-
     }
   }
 

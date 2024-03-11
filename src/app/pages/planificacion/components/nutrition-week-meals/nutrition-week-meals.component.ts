@@ -46,6 +46,7 @@ export class NutritionWeekMealsComponent implements OnInit, OnDestroy{
   }
 
   private uppdateRecipes(mealTime: string) {
-    this.recipes = this.recipesService.getRecipesByMealTime(mealTime);
+    this.recipes = this.recipesService.getRecipesByMealTime(mealTime)
+    .slice(0, 3);
   }
 }
