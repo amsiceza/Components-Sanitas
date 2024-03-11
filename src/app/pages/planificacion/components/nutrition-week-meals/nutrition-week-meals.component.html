@@ -1,1 +1,7 @@
-<h1>{{spanishDays[day.getDay()]}} {{day.getDate()}} {{spanishMonths[day.getMonth()]}}</h1>
+<div class="nutrition-week-meals">
+    <h1>{{spanishDays[day.getDay()]}} {{day.getDate()}} {{spanishMonths[day.getMonth()]}}</h1>
+    <div class="nutrition-week-meals__meal-options">
+        <button *ngFor="let button of mealsButtons">{{button}}</button>
+    </div>
+</div>
+
