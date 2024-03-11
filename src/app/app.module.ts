@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecetasModule } from './pages/recetas/recetas.module';
 import { PlanificacionModule } from './pages/planificacion/planificacion.module';
+import { SurveyModule } from './pages/survey/survey.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +15,8 @@ import { PlanificacionModule } from './pages/planificacion/planificacion.module'
     AppRoutingModule,
     BrowserAnimationsModule,
     RecetasModule,
-    PlanificacionModule
+    PlanificacionModule,
+    SurveyModule
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

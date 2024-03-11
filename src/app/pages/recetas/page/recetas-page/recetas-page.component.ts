@@ -15,13 +15,11 @@ export class RecetasPageComponent implements OnInit {
   lunchRecipes: RecipesInterface[] | undefined; 
   dinnerRecipes: RecipesInterface[] | undefined;
 
-  encuestaMock: QuestionSurveyInterface[] | undefined
 
-  constructor(private recipesService: RecipesService, private surveyService: SurveyService) { }
+  constructor(private recipesService: RecipesService) { }
 
   ngOnInit(): void {
     this.recipesService.fetchRecipes();
-    this.surveyService.fetchQuestions()
 
     this.recipesService.recipes$.subscribe(recipes => {
       this.breakfastRecipes = this.recipesService.getRecipesByMealTime("Desayuno");
@@ -30,7 +28,6 @@ export class RecetasPageComponent implements OnInit {
       this.dinnerRecipes = this.recipesService.getRecipesByMealTime("Cena");
     });
 
-    this.surveyService.questions$.subscribe(questions => this.encuestaMock = questions)
 
   }  
 }
