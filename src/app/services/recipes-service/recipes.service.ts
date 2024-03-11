@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
 import { RecipesInterface } from './recipes.interface';
 import { recipesMock } from './recipes.mock';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -59,12 +60,15 @@ export class RecipesService {
       map(recipes => this.getRecipesByMealTime("Cena"))
     );
   }
-  getAlternativeRecipe$(ids: number[], mealTime: string) {
-    const alternative = this.currentRecipes.find(recipe =>
-      !ids.includes(recipe.id) && recipe.mealTime.includes(mealTime)
-    );
-    console.log("receta alternativa", alternative);
-    return alternative ? alternative : undefined;
 
-  }
+
+getAlternativeRecipe$(ids: number[], mealTime: string): Observable<RecipesInterface | undefined> {
+  return this.recipes$.pipe(
+    map(recipes => {
+      return this.getRecipesByMealTime(mealTime).filter(recipe => !ids.includes(recipe.id))[0];
+    })
+  );
+}
+
+  
 }
