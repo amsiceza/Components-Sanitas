@@ -1,8 +1,8 @@
 .planification-page{
     display: flex;
-    overflow: hidden;
     flex-direction: column;
     height: 100%;
+    overflow: hidden;
     width: 100%;
 
     &__week-planification{
@@ -12,12 +12,12 @@
         }
 
         @media (width > 350px) {
-            width: 100%;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
             max-width: 936px;
             text-align: center;
-            justify-content: center;
-            align-items: center;
-            margin: auto;
+            width: 100%;
         }
     }
 }
