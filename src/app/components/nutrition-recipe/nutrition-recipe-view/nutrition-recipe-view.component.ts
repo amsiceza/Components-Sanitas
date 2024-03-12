@@ -29,7 +29,6 @@ export class NutritionRecipeViewComponent implements OnChanges {
   }
 
   toggleFavorite(response: number) {
-    console.log('toggleFavorite', response);
     this.recipesService.toggleFavorite(response);
   }
 }
