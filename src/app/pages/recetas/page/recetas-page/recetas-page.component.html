@@ -11,7 +11,7 @@
         <div *ngIf="breakfastRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
             <p class="recipes-page-main__content-container__recipe-container--p">Desayuno</p>
             <app-nutrition-recipe-view *ngIf="!isScreenSmall" [recipes]="breakfastRecipes"></app-nutrition-recipe-view>
-            <app-nutrition-recipe-card-wiew [recipes]="breakfastRecipes" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
+            <app-nutrition-recipe-card-wiew *ngIf="isScreenSmall" [recipes]="breakfastRecipes" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
 
         </div>
         <div *ngIf="snackRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
