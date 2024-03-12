@@ -1,0 +1,40 @@
+.recipes-page-main{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    &__search-container{
+        display: flex;
+        justify-content: space-between;
+        &__input-container{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 100%;
+            border: 1px solid #DDE1E6;
+            border-radius: 5px;
+            padding: 4px 12px;
+            margin-right: 1.5rem;
+
+            &--input{
+                height: 22px;
+                width: 100%;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+
+    &__content-container{
+        margin-top: 1rem;
+        &__recipe-container{
+            &--p{
+                font-weight: bold;
+                font-size: 22px;
+                margin: 5px 2px;
+            }
+
+        }
+
+    }
+}

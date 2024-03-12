@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { RecipesInterface } from './recipes.interface';
 import { recipesMock } from './recipes.mock';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipesService {
-
   private recipesSubject = new BehaviorSubject<RecipesInterface[]>([]);
-  public recipes$ = this.recipesSubject.asObservable();
-
   private currentRecipes: RecipesInterface[] = [];
+  private currentFilter: string = '';
 
-  constructor() { }
+  public recipes$: Observable<RecipesInterface[]> = this.recipesSubject.asObservable();
+  public filteredRecipes$: Observable<RecipesInterface[]> = this.recipes$.pipe(
+    map(recipes => this.applyFilter(recipes))
+  );
 
-  fetchRecipes() {
+  fetchRecipes(): void {
     this.currentRecipes = recipesMock;
     this.recipesSubject.next(this.currentRecipes);
   }
@@ -32,31 +33,24 @@ export class RecipesService {
     this.recipesSubject.next(this.currentRecipes);
   }
 
+  filterRecipes(input: string): void {
+    this.currentFilter = input;
+    this.recipesSubject.next(this.currentRecipes);
+  }
+
   getRecipesByMealTime(mealTime: string): RecipesInterface[] {
     return this.currentRecipes.filter(recipe => recipe.mealTime.includes(mealTime));
   }
 
-  getBreakfastRecipes$() {
-    return this.recipes$.pipe(
-      map(recipes => this.getRecipesByMealTime("Desayuno"))
+  getRecipesByMealTime$(mealTime: string): Observable<RecipesInterface[]> {
+    return this.filteredRecipes$.pipe(
+      map(recipes => this.getRecipesByMealTime(mealTime))
     );
   }
 
-  getSnackRecipes$() {
-    return this.recipes$.pipe(
-      map(recipes => this.getRecipesByMealTime("Almuerzo"))
-    );
-  }
-
-  getLunchRecipes$() {
-    return this.recipes$.pipe(
-      map(recipes => this.getRecipesByMealTime("Comida"))
-    );
-  }
-
-  getDinnerRecipes$() {
-    return this.recipes$.pipe(
-      map(recipes => this.getRecipesByMealTime("Cena"))
+  private applyFilter(recipes: RecipesInterface[]): RecipesInterface[] {
+    return recipes.filter((item) =>
+      item.name.toLowerCase().includes(this.currentFilter.toLowerCase())
     );
   }
 
@@ -71,3 +65,5 @@ getAlternativeRecipe$(ids: number[], mealTime: string): Observable<RecipesInterf
 
   
 }
+
+

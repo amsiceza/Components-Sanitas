@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipesInterface } from '../../../../services/recipes-service/recipes.interface';
 import { RecipesService } from '../../../../services/recipes-service/recipes.service';
-import { SurveyService } from '../../../../services/survey-service/survey.service';
-import { QuestionSurveyInterface } from '../../../../services/survey-service/survey.interface';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-recetas-page',
@@ -15,12 +14,13 @@ export class RecetasPageComponent implements OnInit {
   lunchRecipes: RecipesInterface[] | undefined; 
   dinnerRecipes: RecipesInterface[] | undefined;
 
+  searchCoursesControl = new FormControl();
 
   constructor(private recipesService: RecipesService) { }
 
   ngOnInit(): void {
     this.recipesService.fetchRecipes();
-
+    
     this.recipesService.recipes$.subscribe(recipes => {
       this.breakfastRecipes = this.recipesService.getRecipesByMealTime("Desayuno");
       this.snackRecipes = this.recipesService.getRecipesByMealTime("Almuerzo");
@@ -29,7 +29,26 @@ export class RecetasPageComponent implements OnInit {
     });
 
 
+    this.searchCoursesControl.valueChanges.subscribe(searchValue => {
+      if (searchValue || searchValue=="") {
+        this.recipesService.filterRecipes(searchValue);
+        this.recipesService.filteredRecipes$.subscribe(filteredRecipes => {
+          this.breakfastRecipes = filteredRecipes.filter(recipe => recipe.mealTime.includes("Desayuno"));
+          this.snackRecipes = filteredRecipes.filter(recipe => recipe.mealTime.includes("Almuerzo"));
+          this.lunchRecipes = filteredRecipes.filter(recipe => recipe.mealTime.includes("Comida"));
+          this.dinnerRecipes = filteredRecipes.filter(recipe => recipe.mealTime.includes("Cena"));
+        });
+      } else {
+        this.recipesService.fetchRecipes();
+      }
+    });
+    
+    
   }  
 }
+
+
+
+
 
 
