@@ -13,10 +13,14 @@ export class RecetasPageComponent implements OnInit {
   snackRecipes: RecipesInterface[] | undefined;
   lunchRecipes: RecipesInterface[] | undefined; 
   dinnerRecipes: RecipesInterface[] | undefined;
-
+  
+  isScreenSmall: boolean; // Propiedad booleana para el tamaño de la pantalla
+  
   searchCoursesControl = new FormControl();
 
-  constructor(private recipesService: RecipesService) { }
+  constructor(private recipesService: RecipesService, private window: Window) {
+    this.isScreenSmall = window.innerWidth < 400; // Determina el tamaño de la pantalla en el constructor
+  }
 
   ngOnInit(): void {
     this.recipesService.fetchRecipes();
@@ -27,7 +31,6 @@ export class RecetasPageComponent implements OnInit {
       this.lunchRecipes = this.recipesService.getRecipesByMealTime("Comida");
       this.dinnerRecipes = this.recipesService.getRecipesByMealTime("Cena");
     });
-
 
     this.searchCoursesControl.valueChanges.subscribe(searchValue => {
       if (searchValue || searchValue=="") {
@@ -42,10 +45,9 @@ export class RecetasPageComponent implements OnInit {
         this.recipesService.fetchRecipes();
       }
     });
-    
-    
   }  
 }
+
 
 
 

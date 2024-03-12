@@ -4,6 +4,7 @@ import { RecetasPageComponent } from './page/recetas-page/recetas-page.component
 import { NutritionRecipeModule } from '../../components/nutrition-recipe/nutrition-recipe.module';
 import { SurveyProgressModule } from '../../components/survey-progress/survey-progress.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NutritionRecipeCardModule } from '../../components/nutrition-recipe-card-wiew/nutrition-recipe-card.module';
 
 
 
@@ -14,7 +15,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     NutritionRecipeModule,
-    SurveyProgressModule, ReactiveFormsModule
+    SurveyProgressModule, 
+    ReactiveFormsModule,
+    NutritionRecipeCardModule
   ],
 })
 export class RecetasModule { }
