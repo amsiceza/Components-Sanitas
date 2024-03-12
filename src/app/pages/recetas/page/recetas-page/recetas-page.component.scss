@@ -32,6 +32,10 @@
                 display: flex;
                 gap: 16px;
                 margin-bottom: 2rem;
+
+                &--slide{
+                    margin-right: 16px;
+                }
             }
 
             &--p {

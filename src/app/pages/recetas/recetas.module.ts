@@ -1,4 +1,4 @@
-import {  NgModule } from '@angular/core';
+import {  CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecetasPageComponent } from './page/recetas-page/recetas-page.component';
 import { NutritionRecipeModule } from '../../components/nutrition-recipe/nutrition-recipe.module';
@@ -19,5 +19,6 @@ import { NutritionRecipeCardModule } from '../../components/nutrition-recipe-car
     ReactiveFormsModule,
     NutritionRecipeCardModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RecetasModule { }
