@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { NutritionRecipeCardConfig } from './nutrition-recipe-card.interface';
 import { RecipesService } from '../../services/recipes-service/recipes.service';
 import { RecipesInterface } from '../../services/recipes-service/recipes.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nutrition-recipe-card-wiew',
@@ -16,6 +17,7 @@ export class NutritionRecipeCardWiewComponent implements OnInit {
 
   constructor(
     private recipesService: RecipesService,
+    private router: Router
   ) {
   
   }
@@ -31,7 +33,7 @@ export class NutritionRecipeCardWiewComponent implements OnInit {
       backTitle: "Grupo de alimentos",
       backInfo: this.recipe.groupAliments,
       mealTime: this.recipe.mealTime,
-
+      isRecipes: this.router.url.includes("recetas")
     }
   }
 

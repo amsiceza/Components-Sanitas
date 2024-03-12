@@ -35,7 +35,6 @@ export class NutritionRecipeCardComponent implements OnInit {
 
   public difficultyTemplate!: DifficultyInfo
   isFront: boolean = true;
-  isFavorite: boolean = false;
 
   ngOnInit(): void {
     this.difficultyTemplate = DIFFICULTY[this.config?.difficulty]
