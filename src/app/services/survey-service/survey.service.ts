@@ -21,8 +21,8 @@ export class SurveyService {
   }
 
   submitSurvey(data: object){
-      console.log('Simulando envío de datos por POST:', data);
-      console.log('¡Datos enviados con éxito!');
+    alert('Simulando envío de datos por POST: ' + JSON.stringify(data));
+    alert('¡Datos enviados con éxito!');
   }
 
 

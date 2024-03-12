@@ -1,7 +1,9 @@
 .form-progress-container {
   margin-left: 0.5rem;
+  margin-right: 0.5rem;
   margin-top: 1rem;
-  width: 370px;
+  min-width: 340px;
+  max-width: 400px;
 
   &__tag {
     &--button {
