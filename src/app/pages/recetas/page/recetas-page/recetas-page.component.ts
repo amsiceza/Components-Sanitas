@@ -14,11 +14,13 @@ export class RecetasPageComponent implements OnInit {
   lunchRecipes: RecipesInterface[] | undefined; 
   dinnerRecipes: RecipesInterface[] | undefined;
   
-  isScreenSmall: boolean = false; 
+  isScreenSmall: boolean; // Propiedad booleana para el tamaño de la pantalla
   
   searchCoursesControl = new FormControl();
 
-  constructor(private recipesService: RecipesService) { }
+  constructor(private recipesService: RecipesService, private window: Window) {
+    this.isScreenSmall = window.innerWidth < 400; // Determina el tamaño de la pantalla en el constructor
+  }
 
   ngOnInit(): void {
     this.recipesService.fetchRecipes();
