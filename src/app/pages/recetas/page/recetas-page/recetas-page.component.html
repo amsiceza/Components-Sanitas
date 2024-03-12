@@ -14,7 +14,7 @@
                 <app-nutrition-recipe-view [recipes]="breakfastRecipes"></app-nutrition-recipe-view>
             </ng-container>
             <ng-template  #breakfastSmallScreenView>
-                <div class="recipes-desktop-container">
+                <div class="recipes-page-main__content-container__recipe-container__recipes-desktop-container">
                     <app-nutrition-recipe-card-wiew *ngFor="let recipe of breakfastRecipes" [recipe]="recipe" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
                 </div>
             </ng-template>
@@ -26,7 +26,7 @@
                 <app-nutrition-recipe-view [recipes]="snackRecipes"></app-nutrition-recipe-view>
             </ng-container>
             <ng-template #snackSmallScreenView>
-                <div class="recipes-desktop-container">
+                <div class="recipes-page-main__content-container__recipe-container__recipes-desktop-container">
                     <app-nutrition-recipe-card-wiew *ngFor="let recipe of snackRecipes" [recipe]="recipe" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
                 </div>
             </ng-template>
@@ -38,7 +38,7 @@
                 <app-nutrition-recipe-view [recipes]="lunchRecipes"></app-nutrition-recipe-view>
             </ng-container>
             <ng-template #lunchSmallScreenView>
-                <div class="recipes-desktop-container">
+                <div class="recipes-page-main__content-container__recipe-container__recipes-desktop-container">
                     <app-nutrition-recipe-card-wiew *ngFor="let recipe of lunchRecipes" [recipe]="recipe" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
                 </div>
             </ng-template>
@@ -50,7 +50,7 @@
                 <app-nutrition-recipe-view [recipes]="dinnerRecipes"></app-nutrition-recipe-view>
             </ng-container>
             <ng-template #dinnerSmallScreenView>
-                <div class="recipes-desktop-container">
+                <div class="recipes-page-main__content-container__recipe-container__recipes-desktop-container">
                     <app-nutrition-recipe-card-wiew *ngFor="let recipe of dinnerRecipes" [recipe]="recipe" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
                 </div>
             </ng-template>
