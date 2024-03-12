@@ -10,12 +10,9 @@
     <div class="recipes-page-main__content-container">
         <div *ngIf="breakfastRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
             <p class="recipes-page-main__content-container__recipe-container--p">Desayuno</p>
-            <ng-container *ngIf="isScreenSmall; else breakfastSmallScreenView">
-                <app-nutrition-recipe-view [recipes]="breakfastRecipes"></app-nutrition-recipe-view>
-            </ng-container>
-            <ng-template #breakfastSmallScreenView>
-                <app-nutrition-recipe-card-wiew [recipes]="breakfastRecipes" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
-            </ng-template>
+            <app-nutrition-recipe-view *ngIf="!isScreenSmall" [recipes]="breakfastRecipes"></app-nutrition-recipe-view>
+            <app-nutrition-recipe-card-wiew [recipes]="breakfastRecipes" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
+
         </div>
 
         <div *ngIf="snackRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
