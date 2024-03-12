@@ -65,8 +65,8 @@
             flex: 1 1 auto;
             justify-content: space-between;
             position: relative;
-            width: 100%;
             z-index: 2;
+            width: 100%;
 
 
             &__content {
@@ -78,9 +78,6 @@
                 max-width: 300px;
                 min-width: 200px;
                 width: 100%;
-
-
-    
 
                 &__title {
                     font-size: 20px;
@@ -161,7 +158,6 @@
 
             }
         }
-
 
     }
 
@@ -269,7 +265,6 @@
                 justify-content: center;
                 padding: 2px;
                 width: 32px;
-
 
             }
 
