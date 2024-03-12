@@ -11,27 +11,19 @@
         <div *ngIf="breakfastRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
             <p class="recipes-page-main__content-container__recipe-container--p">Desayuno</p>
             <app-nutrition-recipe-view *ngIf="!isScreenSmall" [recipes]="breakfastRecipes"></app-nutrition-recipe-view>
-            <app-nutrition-recipe-card-wiew *ngIf="isScreenSmall" [recipes]="breakfastRecipes" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
-
         </div>
         <div *ngIf="snackRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
             <p class="recipes-page-main__content-container__recipe-container--p">Almuerzo</p>
             <app-nutrition-recipe-view [recipes]="snackRecipes"></app-nutrition-recipe-view>
-            <app-nutrition-recipe-card-wiew [recipes]="snackRecipes" [mealTime]="'Almuerzo'"></app-nutrition-recipe-card-wiew>
-
         </div>
         
         <div *ngIf="lunchRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
             <p class="recipes-page-main__content-container__recipe-container--p">Comida</p>
             <app-nutrition-recipe-view [recipes]="lunchRecipes"></app-nutrition-recipe-view>
-            <app-nutrition-recipe-card-wiew [recipes]="lunchRecipes" [mealTime]="'Comida'"></app-nutrition-recipe-card-wiew>
-
         </div>
         <div *ngIf="dinnerRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
             <p class="recipes-page-main__content-container__recipe-container--p">Cena</p>
             <app-nutrition-recipe-view [recipes]="dinnerRecipes"></app-nutrition-recipe-view>
-            <app-nutrition-recipe-card-wiew [recipes]="lunchRecipes" [mealTime]="'Cena'"></app-nutrition-recipe-card-wiew>
-
         </div>  
     </div>
 </div>

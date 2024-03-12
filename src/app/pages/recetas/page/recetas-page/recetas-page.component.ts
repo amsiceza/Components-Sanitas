@@ -9,10 +9,10 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./recetas-page.component.scss'], 
 })
 export class RecetasPageComponent implements OnInit {
-  breakfastRecipes!: RecipesInterface[];
-  snackRecipes!: RecipesInterface[];
-  lunchRecipes!: RecipesInterface[]; 
-  dinnerRecipes!: RecipesInterface[];
+  breakfastRecipes: RecipesInterface[] | undefined;
+  snackRecipes: RecipesInterface[] | undefined;
+  lunchRecipes: RecipesInterface[] | undefined; 
+  dinnerRecipes: RecipesInterface[] | undefined;
   
   isScreenSmall: boolean = false; 
   
