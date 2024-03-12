@@ -11,8 +11,8 @@ import { take } from 'rxjs';
   styleUrl: './nutrition-recipe-card-wiew.component.scss'
 })
 export class NutritionRecipeCardWiewComponent implements OnChanges {
-  @Input({ required: true }) recipes: RecipesInterface[] | undefined;
-  @Input({ required: true }) mealTime: string | undefined;
+  @Input({ required: true }) recipes!: RecipesInterface[];
+  @Input({ required: true }) mealTime!: string;
   public configs: NutritionRecipeCardConfig[] = [];
   private recipesIds: number[] | undefined;
   
