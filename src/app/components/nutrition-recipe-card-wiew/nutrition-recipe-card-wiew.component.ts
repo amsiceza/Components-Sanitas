@@ -60,6 +60,7 @@ export class NutritionRecipeCardWiewComponent implements OnInit {
       backTitle: "Grupo de alimentos",
       backInfo: newRecipe.groupAliments,
       mealTime: newRecipe.mealTime,
+      isRecipes: this.router.url.includes("recetas")
     }
     
   }

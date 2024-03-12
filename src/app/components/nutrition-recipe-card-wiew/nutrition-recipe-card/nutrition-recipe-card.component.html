@@ -21,7 +21,7 @@
             <div class="nutrition-recipe-card__front__footer__icons-container">
                 <span class="nutrition-recipe-card__front__footer__icons-container__icon " *ngIf="config.isFavorite && !config.isRecipes" (click)="toggleFavorite()"><img class="icon" src="../../../../assets/icons/on.svg" alt="like button"></span>
                 <span class="nutrition-recipe-card__front__footer__icons-container__icon " *ngIf="!config.isFavorite && !config.isRecipes" (click)="toggleFavorite()"><img class="icon" src="../../../../assets/icons/off.svg" alt="unlike button"></span>
-                <span class="nutrition-recipe-card__front__footer__icons-container__icon " (click)="changeSide()"><img class="icon" src="../../../../assets/icons/Flip.svg" alt="flip button"></span>
+                <span class="nutrition-recipe-card__front__footer__icons-container__icon " (click)="changeSide()"  *ngIf="!config.isRecipes"><img class="icon" src="../../../../assets/icons/Flip.svg" alt="flip button"></span>
             </div>    
         </div>
     </div>
