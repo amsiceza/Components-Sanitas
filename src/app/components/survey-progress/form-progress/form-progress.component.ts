@@ -34,7 +34,7 @@ export class FormProgressComponent implements OnInit {
       this.surveyService.submitSurvey(this.encuestaForm.value)
       this.encuestaForm.reset();
     } else {
-      console.log('Formulario inválido. Por favor, complete todas las preguntas.');
+      alert('Formulario inválido. Por favor, complete todas las preguntas.');
     }
   }
 }

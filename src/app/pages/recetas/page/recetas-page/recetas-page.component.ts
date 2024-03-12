@@ -19,7 +19,7 @@ export class RecetasPageComponent implements OnInit {
   searchCoursesControl = new FormControl();
 
   constructor(private recipesService: RecipesService) {
-    this.checkScreenSize();
+    
   }
 
   ngOnInit(): void {
@@ -54,6 +54,8 @@ export class RecetasPageComponent implements OnInit {
         this.recipesService.fetchRecipes();
       }
     });
+
+    this.checkScreenSize();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -61,6 +63,6 @@ export class RecetasPageComponent implements OnInit {
     this.checkScreenSize();
   }
   private checkScreenSize() {
-    this.isScreenSmall = window.innerWidth < 700;
+    this.isScreenSmall = window.innerWidth < 600;
   }
 }
