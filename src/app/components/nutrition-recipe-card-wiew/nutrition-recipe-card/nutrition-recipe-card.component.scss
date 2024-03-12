@@ -55,6 +55,7 @@
                 justify-content: center;
                 padding: 2px;
                 width: 32px;
+                cursor: pointer;
             }
         }
 
@@ -152,13 +153,8 @@
                     justify-content: center;
                     padding: 2px;
                     width: 32px;
+                    cursor: pointer;
 
-
-                    .flip-icon {
-                        border: 1px solid;
-                        cursor: pointer;
-
-                    }
                 }
 
             }
@@ -199,7 +195,7 @@
         &__main {
             max-height: 182px;
             min-height: 182px;
-            max-width: 360px;
+            max-width: 300px;
             min-width: 245px;
             overflow: hidden;
             box-sizing: content-box;
@@ -221,11 +217,17 @@
                 padding-left: 10px;
 
                 &__title {
+                    display: inline-block;
                     font-size: 20px;
                     font-weight: 700;
                     line-height: 26px;
                     margin: 0;
+                    max-width: 200px;
+                    min-width: 200px;
+                    overflow: hidden;
                     padding: 0;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                 }
 
                 &__subtitle {
@@ -234,10 +236,13 @@
                     font-weight: 500;
                     line-height: 20px;
                     margin: 0;
+                    max-width: 200px;
+                    min-width: 200px;
                     overflow: hidden;
                     padding: 0;
                     text-overflow: ellipsis;
                     white-space: nowrap;
+
                 }
 
             }
@@ -265,16 +270,13 @@
                 justify-content: center;
                 padding: 2px;
                 width: 32px;
+                cursor: pointer;
 
-            }
 
         }
 
     }
 
-    span {
-        cursor: pointer;
+
     }
-
-
 }
