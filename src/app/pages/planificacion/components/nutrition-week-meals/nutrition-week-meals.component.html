@@ -10,5 +10,5 @@
             </swiper-slide>
         </swiper-container>
     </div>
-    <app-nutrition-recipe-card-wiew [recipes]="recipes" [mealTime]="mealTime"></app-nutrition-recipe-card-wiew>
+    <app-nutrition-recipe-card-wiew *ngFor="let recipe of recipes" [recipe]="recipe" [mealTime]="mealTime"></app-nutrition-recipe-card-wiew>
 </div>

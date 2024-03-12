@@ -1,21 +1,7 @@
 <div>
-  <div class="nutrition-recipe-view" *ngIf="mealTime !== 'Comida'">
-    <div *ngFor="let recipe of configs" class="nutrition-recipe-view__content">
-      <app-nutrition-recipe-card (favoriteChanges)="toggleFavorite($event)" [config]="recipe" (changeRecipe)="changeRecipe($event)"></app-nutrition-recipe-card>
-    </div>
-  </div>
-  <div class="nutrition-recipe-view" *ngIf="mealTime === 'Comida'">
+  <div class="nutrition-recipe-view">
     <div class="nutrition-recipe-view__content">
-      <p class="nutrition-recipe-view__content--title">Plato principal</p>
-      <app-nutrition-recipe-card (favoriteChanges)="toggleFavorite($event)" [config]="configs[0]" (changeRecipe)="changeRecipe($event)"></app-nutrition-recipe-card>
-    </div>
-    <div class="nutrition-recipe-view__content">
-      <p class="nutrition-recipe-view__content--title">Segundo plato</p>
-      <app-nutrition-recipe-card (favoriteChanges)="toggleFavorite($event)" [config]="configs[1]" (changeRecipe)="changeRecipe($event)"></app-nutrition-recipe-card>
-    </div>
-    <div class="nutrition-recipe-view__content">
-      <p class="nutrition-recipe-view__content--title">Postre</p>
-      <app-nutrition-recipe-card (favoriteChanges)="toggleFavorite($event)" [config]="configs[2]" (changeRecipe)="changeRecipe($event)"></app-nutrition-recipe-card>
+      <app-nutrition-recipe-card (favoriteChanges)="toggleFavorite()" [config]="config" (changeRecipe)="changeRecipe()"></app-nutrition-recipe-card>
     </div>
   </div>
 </div>

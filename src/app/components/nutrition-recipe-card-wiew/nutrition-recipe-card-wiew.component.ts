@@ -1,20 +1,17 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NutritionRecipeCardConfig } from './nutrition-recipe-card.interface';
 import { RecipesService } from '../../services/recipes-service/recipes.service';
 import { RecipesInterface } from '../../services/recipes-service/recipes.interface';
-
-import { take } from 'rxjs';
 
 @Component({
   selector: 'app-nutrition-recipe-card-wiew',
   templateUrl: './nutrition-recipe-card-wiew.component.html',
   styleUrl: './nutrition-recipe-card-wiew.component.scss'
 })
-export class NutritionRecipeCardWiewComponent implements OnChanges {
-  @Input({ required: true }) recipes!: RecipesInterface[];
+export class NutritionRecipeCardWiewComponent implements OnInit {
+  @Input({ required: true }) recipe!: RecipesInterface;
   @Input({ required: true }) mealTime!: string;
-  public configs: NutritionRecipeCardConfig[] = [];
-  private recipesIds: number[] | undefined;
+  public config!: NutritionRecipeCardConfig;
   
 
   constructor(
@@ -23,55 +20,45 @@ export class NutritionRecipeCardWiewComponent implements OnChanges {
   
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['recipes']) {
-      this.configs = this.recipes?.map((recipe) => ({
-        id: recipe.id,
-        backgroundImage: recipe.recipeImg,
-        frontTitle: recipe.name,
-        difficulty: recipe.difficulty,
-        duration: recipe.duration,
-        isFavorite: recipe.isFavorite,
-        backTitle: "Grupo de alimentos",
-        backInfo: recipe.groupAliments,
-        mealTime: recipe.mealTime,
+  ngOnInit(): void {
+    this.config = {
+      id: this.recipe.id,
+      backgroundImage: this.recipe.recipeImg,
+      frontTitle: this.recipe.name,
+      difficulty: this.recipe.difficulty,
+      duration: this.recipe.duration,
+      isFavorite: this.recipe.isFavorite,
+      backTitle: "Grupo de alimentos",
+      backInfo: this.recipe.groupAliments,
+      mealTime: this.recipe.mealTime,
 
-      })) || [];
     }
   }
 
 
-  toggleFavorite(response: number) {
-    this.recipesService.toggleFavorite(response);
+  toggleFavorite() {
+    this.recipesService.toggleFavorite(this.config.id);
+    this.config = {
+      ...this.config,
+      isFavorite: !this.config.isFavorite,
+    }
   }
 
 
-  changeRecipe(configId: number) {
-    this.recipesIds = this.configs?.map((config) => config.id) || [];
-    this.recipesService.getAlternativeRecipe$(this.recipesIds, this.mealTime!)
-    .pipe(take(1))
-    .subscribe((recipe) => {
+  changeRecipe() {
+    const newRecipe = this.recipesService.getAlternativeRecipe(this.config.id, this.mealTime!)
+
+    this.config = {
+      id: newRecipe.id,
+      backgroundImage: newRecipe.recipeImg,
+      frontTitle: newRecipe.name,
+      difficulty: newRecipe.difficulty,
+      duration: newRecipe.duration,
+      isFavorite: newRecipe.isFavorite,
+      backTitle: "Grupo de alimentos",
+      backInfo: newRecipe.groupAliments,
+      mealTime: newRecipe.mealTime,
+    }
     
-      if (!recipe) {
-        return;
-      }
-
-
-      const index = this.configs?.findIndex((config) => config.id === configId);
-      if (index === -1) {
-        return;
-      }
-      this.configs[index] = {
-        id: recipe.id,
-        backgroundImage: recipe.recipeImg,
-        frontTitle: recipe.name,
-        difficulty: recipe.difficulty,
-        duration: recipe.duration,
-        isFavorite: recipe.isFavorite,
-        backTitle: "Grupo de alimentos",
-        backInfo: recipe.groupAliments,
-        mealTime: recipe.mealTime,
-      };
-    });
   }
 }

@@ -55,13 +55,14 @@ export class RecipesService {
   }
 
 
-getAlternativeRecipe$(ids: number[], mealTime: string): Observable<RecipesInterface | undefined> {
-  return this.recipes$.pipe(
-    map(recipes => {
-      return this.getRecipesByMealTime(mealTime).filter(recipe => !ids.includes(recipe.id))[0];
-    })
-  );
-}
+  getAlternativeRecipe(id: number, mealTime: string): RecipesInterface {
+    const matchingRecipes = this.currentRecipes.filter(recipe =>
+      recipe.id !== id && recipe.mealTime.includes(mealTime)
+    );
+     
+    return matchingRecipes[Math.floor(Math.random() * matchingRecipes.length)];
+    
+  }
 
   
 }

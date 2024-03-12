@@ -30,7 +30,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 export class NutritionRecipeCardComponent implements OnInit {
 
   @Input({ required: true }) config!: NutritionRecipeCardConfig;
-  @Output() favoriteChanges = new EventEmitter<number>();
+  @Output() favoriteChanges = new EventEmitter<void>();
   @Output() changeRecipe = new EventEmitter<number>();
 
   public difficultyTemplate!: DifficultyInfo
@@ -49,7 +49,7 @@ export class NutritionRecipeCardComponent implements OnInit {
     this.isFront = !this.isFront;
   }
   toggleFavorite() {
-    this.favoriteChanges.emit(this.config.id)
+    this.favoriteChanges.emit()
   }
 
 
