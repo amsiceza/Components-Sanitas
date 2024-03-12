@@ -196,12 +196,12 @@
         &__main {
             box-sizing: content-box;
             max-height: 182px;
-            max-width: 300px;
             min-height: 182px;
             min-width: 245px;
             overflow: hidden;
             text-align: left;
             z-index: 2;
+            width: 100%;
 
             &__title {
                 height: 20px;
@@ -216,6 +216,7 @@
                 height: 46px;
                 overflow: hidden;
                 padding-left: 10px;
+                width: 100%;
 
                 &__title {
                     display: inline-block;
@@ -223,8 +224,6 @@
                     font-weight: 700;
                     line-height: 26px;
                     margin: 0;
-                    max-width: 200px;
-                    min-width: 200px;
                     overflow: hidden;
                     padding: 0;
                     text-overflow: ellipsis;
@@ -237,13 +236,11 @@
                     font-weight: 500;
                     line-height: 20px;
                     margin: 0;
-                    max-width: 200px;
-                    min-width: 200px;
                     overflow: hidden;
                     padding: 0;
                     text-overflow: ellipsis;
                     white-space: nowrap;
-
+                    width: 100%;
                 }
 
             }
