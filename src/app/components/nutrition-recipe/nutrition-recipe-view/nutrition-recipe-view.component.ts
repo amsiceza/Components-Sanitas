@@ -1,8 +1,9 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NutritionRecipeInterface } from '../nutrition-recipe.interface';
 import { RecipesService } from '../../../services/recipes-service/recipes.service';
 import { RecipesInterface } from '../../../services/recipes-service/recipes.interface';
 import { SwiperContainer, register } from 'swiper/element/bundle';
+import { flush } from '@angular/core/testing';
 
 register();
 
@@ -15,7 +16,10 @@ export class NutritionRecipeViewComponent implements OnChanges, AfterViewInit {
   @Input() recipes: RecipesInterface[] | undefined;
   public config: NutritionRecipeInterface[] | undefined;
 
-  constructor(private recipesService: RecipesService) {}
+  isScreenSmall : boolean | undefined
+  isSmallSwiper: boolean = false
+
+  constructor(private recipesService: RecipesService, private elementRef: ElementRef) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['recipes']) {
@@ -36,16 +40,60 @@ export class NutritionRecipeViewComponent implements OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.initilizeSmallScreenSwiper();
+    if(this.isScreenSmall){
+      this.isSmallSwiper = false
+    }else{
+
+      this.initilizeSmallScreenSwiper();
+    }
+  }
+ 
+
+  ngAfterViewChecked(): void {
+    if(this.isScreenSmall && this.isSmallSwiper){
+      this.initilizeSmallScreenSwiper();
+    }else if(!this.isScreenSmall){
+      this.isSmallSwiper = false
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkScreenSize();
+  }
+  private checkScreenSize() {
+    this.isScreenSmall = window.innerWidth < 600;
   }
 
   private initilizeSmallScreenSwiper() {
-    const swiperEl = document.querySelector('swiper-container') as SwiperContainer;
-
+    this.isSmallSwiper= true
+    const swiperEls = this.elementRef.nativeElement.querySelectorAll('swiper-container');
     const swiperParams = {
       spaceBetween: 16,
       slidesPerView: 1,
       breakpoints: {
+        100: {
+          slidesPerView: 1,
+        },
+        270: {
+          slidesPerView: 1.4,
+        },
+        300: {
+          slidesPerView: 1.6,
+        },
+        360: {
+          slidesPerView: 2,
+        },
+        390: {
+          slidesPerView: 2.2,
+        },
+        450: {
+          slidesPerView: 2.5,
+        }
+    ,
+        550: {
+          slidesPerView: 3,
+        },
         
       },
       on: {
@@ -53,10 +101,11 @@ export class NutritionRecipeViewComponent implements OnChanges, AfterViewInit {
       },
     };
 
-    Object.assign(swiperEl, swiperParams);
 
-    swiperEl.initialize();
-  }
+    swiperEls.forEach((swiperEl: SwiperContainer) => {
+      Object.assign(swiperEl, swiperParams);
+      swiperEl.initialize();
+    });  }
 }
 
 

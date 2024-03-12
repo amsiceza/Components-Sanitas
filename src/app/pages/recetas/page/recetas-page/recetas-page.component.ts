@@ -89,7 +89,7 @@ export class RecetasPageComponent implements OnInit, AfterViewInit, AfterViewChe
   private initilizeBigScreenSwiper() {
     this.isBigSwiper = true;
     const swiperEls = document.querySelectorAll('swiper-container');
-
+    
     const swiperParams = {
       spaceBetween: 16,
       slidesPerView: 1,
