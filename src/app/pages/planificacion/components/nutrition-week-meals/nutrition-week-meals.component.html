@@ -10,5 +10,23 @@
             </swiper-slide>
         </swiper-container>
     </div>
-    <app-nutrition-recipe-card-wiew *ngFor="let recipe of recipes" [recipe]="recipe" [mealTime]="mealTime"></app-nutrition-recipe-card-wiew>
+    <div *ngIf="mealTime === 'Comida'; else noMealsTemplate">
+        <div class="nutrition-week-meals__meals">
+            <p class="nutrition-week-meals__meals--title">Plato principal</p>
+            <app-nutrition-recipe-card-wiew [recipe]="recipes[0]" [mealTime]="mealTime"></app-nutrition-recipe-card-wiew>
+        </div>
+        <div class="nutrition-week-meals__meals">
+            <p class="nutrition-week-meals__meals--title">Segundo plato</p>
+            <app-nutrition-recipe-card-wiew [recipe]="recipes[1]" [mealTime]="mealTime"></app-nutrition-recipe-card-wiew>
+        </div>
+        <div class="nutrition-week-meals__meals">
+            <p class="nutrition-week-meals__meals--title">Postre</p>
+            <app-nutrition-recipe-card-wiew [recipe]="recipes[2]" [mealTime]="mealTime"></app-nutrition-recipe-card-wiew>
+        </div>
+    </div>
+    <ng-template #noMealsTemplate>
+        <div *ngFor="let recipe of recipes" class="nutrition-week-meals__meals">
+            <app-nutrition-recipe-card-wiew [recipe]="recipe" [mealTime]="mealTime"></app-nutrition-recipe-card-wiew>
+        </div>
+    </ng-template>
 </div>
