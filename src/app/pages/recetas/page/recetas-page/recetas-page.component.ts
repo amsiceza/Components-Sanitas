@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { RecipesInterface } from '../../../../services/recipes-service/recipes.interface';
 import { RecipesService } from '../../../../services/recipes-service/recipes.service';
 import { FormControl } from '@angular/forms';
@@ -14,13 +14,11 @@ export class RecetasPageComponent implements OnInit {
   lunchRecipes: RecipesInterface[] | undefined; 
   dinnerRecipes: RecipesInterface[] | undefined;
   
-  isScreenSmall: boolean; // Propiedad booleana para el tamaño de la pantalla
+  isScreenSmall: boolean = false; 
   
   searchCoursesControl = new FormControl();
 
-  constructor(private recipesService: RecipesService, private window: Window) {
-    this.isScreenSmall = window.innerWidth < 400; // Determina el tamaño de la pantalla en el constructor
-  }
+  constructor(private recipesService: RecipesService) { }
 
   ngOnInit(): void {
     this.recipesService.fetchRecipes();
@@ -46,6 +44,11 @@ export class RecetasPageComponent implements OnInit {
       }
     });
   }  
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isScreenSmall = window.innerWidth < 400; // Define la propiedad booleana según el tamaño de la pantalla
+  }
 }
 
 
