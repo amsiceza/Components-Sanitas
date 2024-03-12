@@ -10,9 +10,14 @@
     <div class="recipes-page-main__content-container">
         <div *ngIf="breakfastRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
             <p class="recipes-page-main__content-container__recipe-container--p">Desayuno</p>
-            <app-nutrition-recipe-view *ngIf="!isScreenSmall" [recipes]="breakfastRecipes"></app-nutrition-recipe-view>
-            <app-nutrition-recipe-card-wiew [recipes]="breakfastRecipes" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
-
+            <ng-container *ngIf="isScreenSmall; else breakfastSmallScreenView">
+                <app-nutrition-recipe-view [recipes]="breakfastRecipes"></app-nutrition-recipe-view>
+            </ng-container>
+            <ng-template  #breakfastSmallScreenView>
+                <div class="recipes-desktop-container">
+                    <app-nutrition-recipe-card-wiew *ngFor="let recipe of breakfastRecipes" [recipe]="recipe" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
+                </div>
+            </ng-template>
         </div>
 
         <div *ngIf="snackRecipes?.length != 0" class="recipes-page-main__content-container__recipe-container">
@@ -21,7 +26,9 @@
                 <app-nutrition-recipe-view [recipes]="snackRecipes"></app-nutrition-recipe-view>
             </ng-container>
             <ng-template #snackSmallScreenView>
-                <app-nutrition-recipe-card-wiew [recipes]="snackRecipes" [mealTime]="'Almuerzo'"></app-nutrition-recipe-card-wiew>
+                <div class="recipes-desktop-container">
+                    <app-nutrition-recipe-card-wiew *ngFor="let recipe of snackRecipes" [recipe]="recipe" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
+                </div>
             </ng-template>
         </div>
 
@@ -31,7 +38,9 @@
                 <app-nutrition-recipe-view [recipes]="lunchRecipes"></app-nutrition-recipe-view>
             </ng-container>
             <ng-template #lunchSmallScreenView>
-                <app-nutrition-recipe-card-wiew [recipes]="lunchRecipes" [mealTime]="'Comida'"></app-nutrition-recipe-card-wiew>
+                <div class="recipes-desktop-container">
+                    <app-nutrition-recipe-card-wiew *ngFor="let recipe of lunchRecipes" [recipe]="recipe" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
+                </div>
             </ng-template>
         </div>
 
@@ -41,7 +50,9 @@
                 <app-nutrition-recipe-view [recipes]="dinnerRecipes"></app-nutrition-recipe-view>
             </ng-container>
             <ng-template #dinnerSmallScreenView>
-                <app-nutrition-recipe-card-wiew [recipes]="dinnerRecipes" [mealTime]="'Cena'"></app-nutrition-recipe-card-wiew>
+                <div class="recipes-desktop-container">
+                    <app-nutrition-recipe-card-wiew *ngFor="let recipe of dinnerRecipes" [recipe]="recipe" [mealTime]="'Desayuno'"></app-nutrition-recipe-card-wiew>
+                </div>
             </ng-template>
         </div>
     </div>

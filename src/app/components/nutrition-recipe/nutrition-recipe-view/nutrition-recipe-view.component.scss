@@ -1,11 +1,10 @@
 .nutrition-recipe-view {
-  min-width: 385px;
+  width: 100%;
 
   &__swiper-container {
     margin-top: 0.5rem;
     display: flex;
     gap: 12px;
-    overflow: hidden;
 
     &__swiper-slide {
       padding-bottom: 1rem;
